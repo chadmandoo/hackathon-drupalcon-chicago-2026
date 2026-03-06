@@ -1,0 +1,55 @@
+# Prize and category recommendation
+
+## Recommended categories
+
+1. **Best Overall**
+2. **Best Agent**
+3. **Best Contribution Back to Drupal**
+
+These are distinct enough to feel fun, while still matching the event’s purpose.
+
+## Recommendation
+
+Use **three equal prizes** rather than first/second/third.
+
+Why:
+- easier to explain
+- easier to administer
+- more forgiving if the entry pool is small
+- better for team submissions
+- aligns with the transcript preference for three equal categories
+
+## Suggested fulfillment options
+
+### Option A — cash-equivalent / transfer
+Best if finance approves.
+
+Pros:
+- most flexible for team splitting
+- best perceived value
+- least opinionated
+
+### Option B — winner chooses from a shortlist
+Examples:
+- headphones
+- keyboard
+- monitor
+- gift card
+- LEGO set
+- dev tooling stipend equivalent
+
+Pros:
+- easier if direct cash is hard
+- still feels premium
+
+### Option C — hybrid
+Offer a transfer/gift-card option plus a curated object choice.
+
+## Suggested public copy
+
+> Prize categories include Best Overall, Best Agent, and Best Contribution Back to Drupal. Final prize fulfillment details will be shared with winners.
+
+## Suggested internal default
+
+- target value: $1,000 each
+- team policy: one prize per winning entry; team decides how to split or claim it
