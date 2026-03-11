@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./assets/permission-to-run-banner.svg" alt="Permission to Run banner" />
+</p>
+
 # Permission to Run
 ## The Agent Experience (AX) Build Sprint for Drupal
 

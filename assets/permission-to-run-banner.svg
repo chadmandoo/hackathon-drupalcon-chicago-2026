@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="900" viewBox="0 0 1800 900" role="img" aria-labelledby="title desc">
+  <title id="title">Permission to Run banner</title>
+  <desc id="desc">Permission to Run Acquia Hackathon DrupalCon Chicago 2026 banner with Chicago skyline and flowing neon lines.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#02083e"/>
+      <stop offset="55%" stop-color="#00155f"/>
+      <stop offset="100%" stop-color="#011a63"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1fd4ff" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#38d9ff" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#74f0ff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#d5ffff" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .headline {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 146px;
+        font-weight: 800;
+        fill: #f5f5f2;
+        letter-spacing: -4px;
+      }
+      .subhead {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 54px;
+        font-weight: 400;
+        fill: #27d7ff;
+        letter-spacing: -1px;
+      }
+      .skyline {
+        fill: none;
+        stroke: #dffcff;
+        stroke-opacity: 0.72;
+        stroke-width: 3;
+      }
+      .flow {
+        fill: none;
+        stroke: url(#flow);
+        stroke-linecap: round;
+        filter: url(#glow);
+      }
+      .accent {
+        fill: #2fe2ff;
+        filter: url(#glow);
+      }
+      .spark {
+        fill: #dffcff;
+        opacity: 0.85;
+      }
+    </style>
+  </defs>
+
+  <rect width="1800" height="900" fill="url(#bg)"/>
+
+  <g opacity="0.18">
+    <rect x="44" y="56" width="1712" height="788" rx="24" fill="none" stroke="#6fe9ff" stroke-width="1.5"/>
+    <rect x="58" y="70" width="1684" height="760" rx="18" fill="none" stroke="#6fe9ff" stroke-width="1"/>
+  </g>
+
+  <g transform="translate(84 198)">
+    <text class="headline" x="0" y="0">Permission</text>
+    <text class="headline" x="0" y="164">to Run</text>
+    <text class="subhead" x="4" y="286">Acquia Hackathon | DrupalCon Chicago 2026</text>
+  </g>
+
+  <g>
+    <path class="flow" stroke-width="10" d="M940 328 C1080 328 1140 328 1220 328 C1330 328 1408 246 1530 246 L1656 246"/>
+    <path class="flow" stroke-width="8" d="M838 362 C1026 362 1138 362 1216 362 C1338 362 1410 278 1536 278 L1696 278"/>
+    <path class="flow" stroke-width="7" d="M766 394 C1000 394 1110 394 1202 394 C1320 394 1398 302 1502 302 L1734 302"/>
+    <path class="flow" stroke-width="6" d="M734 426 C982 426 1098 426 1188 426 C1306 426 1392 334 1498 334 L1766 334"/>
+    <path class="flow" stroke-width="9" d="M968 452 C1098 452 1148 452 1214 452 C1330 452 1414 372 1518 372 L1750 372"/>
+    <path class="flow" stroke-width="5" d="M776 484 C982 484 1100 484 1186 484 C1308 484 1388 404 1498 404 L1774 404"/>
+    <path class="flow" stroke-width="4" d="M862 514 C1046 514 1126 514 1202 514 C1312 514 1392 438 1488 438 L1756 438"/>
+    <path class="flow" stroke-width="6" d="M1018 548 C1138 548 1182 548 1240 548 C1336 548 1408 488 1496 488 L1760 488"/>
+    <path class="flow" stroke-width="4" d="M926 582 C1084 582 1158 582 1228 582 C1340 582 1412 530 1506 530 L1766 530"/>
+    <path class="flow" stroke-width="3.5" d="M850 616 C1024 616 1114 616 1200 616 C1322 616 1410 572 1504 572 L1776 572"/>
+  </g>
+
+  <g>
+    <circle class="accent" cx="1538" cy="280" r="36" opacity="0.95"/>
+    <circle class="accent" cx="1478" cy="356" r="10" opacity="0.9"/>
+    <circle class="accent" cx="1708" cy="396" r="8" opacity="0.75"/>
+    <circle class="accent" cx="1748" cy="632" r="7" opacity="0.7"/>
+  </g>
+
+  <g class="accent" transform="translate(1448 448)">
+    <polygon points="0,-48 12,-14 48,-14 18,8 30,42 0,22 -30,42 -18,8 -48,-14 -12,-14"/>
+  </g>
+
+  <g class="skyline" transform="translate(0 18)">
+    <path d="M1546 658 L1546 314 L1560 314 L1560 248 L1570 248 L1570 172 L1578 172 L1578 246 L1588 246 L1588 160 L1596 160 L1596 246 L1606 246 L1606 314 L1620 314 L1620 658"/>
+    <path d="M1620 658 L1620 420 L1650 420 L1650 380 L1688 380 L1688 328 L1710 328 L1710 658"/>
+    <path d="M1710 658 L1710 470 L1736 470 L1736 328 L1744 328 L1744 288 L1752 288 L1752 328 L1760 328 L1760 470 L1786 470 L1786 658"/>
+    <path d="M1398 658 L1398 540 L1420 540 L1420 426 L1452 426 L1452 376 L1470 376 L1470 448"/>
+    <path d="M1470 658 L1470 350 L1506 350 L1506 258 L1524 258 L1524 350 L1546 350"/>
+    <path d="M1620 450 L1692 450"/>
+    <path d="M1710 510 L1786 510"/>
+    <path d="M1430 580 L1508 580"/>
+    <path d="M1470 430 L1546 430"/>
+    <path d="M1546 374 L1620 374"/>
+    <path d="M1506 520 L1620 520"/>
+    <path d="M1398 658 L1800 658"/>
+  </g>
+
+  <g class="spark">
+    <circle cx="1150" cy="380" r="3"/>
+    <circle cx="1328" cy="520" r="3"/>
+    <circle cx="1700" cy="300" r="2.5"/>
+    <circle cx="1644" cy="244" r="2.5"/>
+    <circle cx="1772" cy="432" r="3"/>
+    <circle cx="1730" cy="610" r="2.5"/>
+  </g>
+</svg>
