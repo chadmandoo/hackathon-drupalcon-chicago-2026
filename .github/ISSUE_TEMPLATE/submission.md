@@ -8,6 +8,10 @@ title: "Submission: "
 
 ## Repo / demo / attachment links
 
+## On-site DrupalCon team lead
+
+Name / GitHub handle of the in-person team lead for prize eligibility:
+
 ## What the agent did
 
 ## What the human did

@@ -99,6 +99,17 @@ Every submission must include an **Agent Experience Report** that says:
 
 Bonus: open that report as a Drupal issue or GitHub issue so the next agent can pick it up.
 
+## Who can participate
+
+This is a virtual-first hackathon, so remote collaborators are welcome.
+
+To be eligible for judging and prizes, each submission must name one team lead who:
+- is physically attending DrupalCon Chicago 2026
+- is the primary contact for the submission
+- can be available in person on Wednesday afternoon if judges need clarification or if the team wins
+
+Teams without an on-site DrupalCon lead are still welcome to share their work, but they should treat it as showcase participation rather than prize-eligible competition.
+
 ## What to submit
 
 Your submission is complete when it includes:
@@ -128,6 +139,7 @@ Submit your work as either:
 - a pull request against this repo
 
 Link any external repo, demo, or attachment you want judges to review.
+Include the name or GitHub handle of your on-site DrupalCon team lead if you want the submission to be prize-eligible.
 
 ## Judging
 
@@ -157,6 +169,7 @@ See [`docs/prizes-and-categories.md`](./docs/prizes-and-categories.md).
 - Entries due Wednesday, March 25, 2026 at 12:00 PM Central Time.
 - Judging happens Wednesday afternoon, with winner timing announced here once finalized.
 - This is a virtual-first hackathon with in person support at the Acquia booth if needed.
+- Prize-eligible teams must have an on-site DrupalCon lead available Wednesday afternoon.
 
 ## Repository layout
 

@@ -49,6 +49,12 @@ Offer a transfer/gift-card option plus a curated object choice.
 
 > Prize categories include Best Overall, Best Agent, and Best Contribution Back to Drupal. Final prize fulfillment details will be shared with winners.
 
+## Prize eligibility rule
+
+Remote collaborators may participate as part of a team.
+
+To be eligible for judging and prizes, a submission must identify one team lead who is physically attending DrupalCon Chicago and can handle any in-person follow-up on Wednesday afternoon, including prize collection or prize coordination.
+
 ## Suggested internal default
 
 - target value: $1,000 each

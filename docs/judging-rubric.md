@@ -8,6 +8,7 @@ An entry is eligible only if it includes:
 3. README
 4. Agent Run Log
 5. Agent Experience Report
+6. an identified team lead who is attending DrupalCon Chicago in person and can represent the submission on Wednesday afternoon
 
 ## Recommended scoring weights
 
