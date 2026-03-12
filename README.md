@@ -5,6 +5,8 @@
 # Permission to Run
 ## The Agent Experience (AX) Hackathon for Drupal
 
+An Acquia-sponsored DrupalCon Chicago 2026 hackathon.
+
 Build with any agent. Let Drupal be the governor.
 
 Permission to Run is what happens when agents can move at full speed and Drupal keeps outcomes safe, reviewable, and repeatable through permissions, workflow, schema, diffs, and auditability.
@@ -162,6 +164,7 @@ Recommended categories:
 3. **Best Contribution Back to Drupal**
 
 See [`docs/prizes-and-categories.md`](./docs/prizes-and-categories.md).
+See the current rules working draft in [`docs/official-rules-draft.md`](./docs/official-rules-draft.md).
 
 ## Dates and logistics
 
@@ -175,6 +178,7 @@ See [`docs/prizes-and-categories.md`](./docs/prizes-and-categories.md).
 
 - [`starter-kit/`](./starter-kit/) - starter docs, templates, examples, and the submission validator
 - [`docs/judging-rubric.md`](./docs/judging-rubric.md) - scoring model and judging flow
+- [`docs/official-rules-draft.md`](./docs/official-rules-draft.md) - first-pass contest rules draft for finance/legal review
 - [`docs/prizes-and-categories.md`](./docs/prizes-and-categories.md) - prize/category recommendations
 - [`docs/organizer-assets/`](./docs/organizer-assets/) - reusable promo email and signage copy
 

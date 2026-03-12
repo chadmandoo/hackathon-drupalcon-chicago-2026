@@ -49,6 +49,14 @@ Offer a transfer/gift-card option plus a curated object choice.
 
 > Prize categories include Best Overall, Best Agent, and Best Contribution Back to Drupal. Final prize fulfillment details will be shared with winners.
 
+## Current working payout model
+
+First pass for finance/legal review:
+
+- three prizes at $1,000 USD each
+- payout expected through Venmo
+- winning teams coordinate prize splitting internally through the named on-site team lead
+
 ## Prize eligibility rule
 
 Remote collaborators may participate as part of a team.
