@@ -3,7 +3,7 @@
 </p>
 
 # Permission to Run
-## The Agent Experience (AX) Build Sprint for Drupal
+## The Agent Experience (AX) Hackathon for Drupal
 
 Build with any agent. Let Drupal be the governor.
 
@@ -156,7 +156,7 @@ See [`docs/prizes-and-categories.md`](./docs/prizes-and-categories.md).
 - DrupalCon Chicago 2026 runs Monday, March 23 through Thursday, March 26, 2026.
 - Entries due Wednesday, March 25, 2026 at 12:00 PM Central Time.
 - Judging happens Wednesday afternoon, with winner timing announced here once finalized.
-- This is a virtual-first hackathon with booth support.
+- This is a virtual-first hackathon with in person support at the Acquia booth if needed.
 
 ## Repository layout
 
