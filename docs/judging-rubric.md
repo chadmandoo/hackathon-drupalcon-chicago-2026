@@ -52,6 +52,8 @@ The strongest community contribution, such as:
 - issue + fix
 - reusable improvement to Drupal AI / AX foundations
 
+Entries in this category should be capable of being contributed back under Drupal-compatible licensing. For Drupal-derivative code intended for Drupal.org-hosted projects, that generally means code that can be released under **GPL-2.0-or-later**.
+
 ## Tie-breakers
 
 Use these in order:

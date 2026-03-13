@@ -40,6 +40,8 @@ This is about more than demos. We want practical patterns that make agent work i
 - Entries due **Wednesday, March 25, 2026 at 12:00 PM Central Time**
 - Winners announced later that day
 
+No purchase necessary to enter or win.
+
 ### Prizes
 Planned categories include:
 - Best Overall

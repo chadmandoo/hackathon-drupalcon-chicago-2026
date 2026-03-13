@@ -105,6 +105,8 @@ Bonus: open that report as a Drupal issue or GitHub issue so the next agent can 
 
 This is a virtual-first hackathon, so remote collaborators are welcome.
 
+No purchase necessary to enter or win.
+
 To be eligible for judging and prizes, each submission must name one team lead who:
 - is physically attending DrupalCon Chicago 2026
 - is the primary contact for the submission
@@ -165,6 +167,8 @@ Recommended categories:
 
 See [`docs/prizes-and-categories.md`](./docs/prizes-and-categories.md).
 See the current rules working draft in [`docs/official-rules-draft.md`](./docs/official-rules-draft.md).
+
+If you want your entry considered for **Best Contribution Back to Drupal**, make sure the contribution can be shared under Drupal-compatible licensing. For Drupal-derivative code intended for Drupal.org-hosted projects, that generally means code that can be released under **GPL-2.0-or-later**.
 
 ## Dates and logistics
 

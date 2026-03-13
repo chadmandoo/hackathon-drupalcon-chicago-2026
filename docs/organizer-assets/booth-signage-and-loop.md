@@ -9,6 +9,8 @@ Build with **any agent**.
 Ship useful work.  
 Let Drupal be the governor.
 
+No purchase necessary.  
+
 Scan to get:
 - starter kit
 - rules and rubric
@@ -67,5 +69,6 @@ Ship guidance, guardrails, and reviewable work.
 ## D. Tiny caption / footer options
 - Virtual-first hackathon. QR to join.
 - Remote collaborators welcome; prize-eligible teams need one on-site lead.
+- No purchase necessary. See repo for rules.
 - Starter kit, rubric, and submission link in one place.
 - Build fast. Keep Drupal in the loop.

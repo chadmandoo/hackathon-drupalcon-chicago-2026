@@ -20,6 +20,10 @@ Name / GitHub handle of the in-person team lead for prize eligibility:
 
 ## AX artifact(s) shipped
 
+## Contribution licensing note
+
+If you want this entry considered for **Best Contribution Back to Drupal**, confirm that the contribution can be shared under Drupal-compatible licensing for its intended target. For Drupal-derivative code intended for Drupal.org-hosted projects, that generally means **GPL-2.0-or-later**. Note any third-party code or assets that affect contribution eligibility.
+
 ## Validation
 
 ## Agent Run Log

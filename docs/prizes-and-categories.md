@@ -57,6 +57,12 @@ First pass for finance/legal review:
 - payout expected through Venmo
 - winning teams coordinate prize splitting internally through the named on-site team lead
 
+## Best Contribution licensing note
+
+Entries targeting **Best Contribution Back to Drupal** should be compatible with Drupal contribution norms. For Drupal-derivative code intended for Drupal.org-hosted projects, that generally means the code can be released under **GPL-2.0-or-later**.
+
+If an entry depends on third-party code or assets, participants should be prepared to explain the relevant licenses and whether those materials can be contributed upstream or must remain external.
+
 ## Prize eligibility rule
 
 Remote collaborators may participate as part of a team.

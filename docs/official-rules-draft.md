@@ -10,6 +10,8 @@
 
 This is a skill-based contest, not a random drawing. Submissions are judged on merit using the published rubric in [`judging-rubric.md`](./judging-rubric.md).
 
+No purchase necessary to enter or win.
+
 ## Sponsor and administrator
 
 The sponsor and administrator is **Acquia, Inc.**
@@ -60,6 +62,18 @@ Each entrant or team represents that:
 - the submission does not violate the rights of another person or organization
 - the submission can be reviewed, discussed, and demonstrated publicly if selected as a winner or finalist
 
+For entries seeking the **Best Contribution Back to Drupal** prize category:
+
+- the entrant must have the right to contribute the relevant materials back to Drupal or another intended open source target
+- any Drupal-derivative code intended for Drupal.org-hosted projects must be capable of being released under Drupal-compatible licensing, which for such code generally means **GPL-2.0-or-later**
+- any third-party code or assets that affect contribution eligibility must be identified by the entrant
+
+Each entrant or team agrees to defend, indemnify, and hold harmless Acquia, its affiliates, and event organizers from claims, damages, liabilities, costs, and expenses arising from or related to:
+
+- a breach of these submission representations
+- alleged or actual infringement, misappropriation, or violation of intellectual property, privacy, publicity, or other rights caused by the submission or its distribution
+- third-party claims tied to code, content, media, or other materials included in the submission, including materials generated in whole or in part by AI tools used by the entrant
+
 ## Judging
 
 Eligible entries will be judged by Acquia and Drupal judges using the published rubric.
@@ -107,6 +121,8 @@ By submitting, entrants grant Acquia and related event organizers a non-exclusiv
 
 Entrants retain ownership of their own submissions, subject to any third-party or open source obligations already attached to their work.
 
+For clarity, retaining ownership does not limit any licensing obligations attached to a submission. A contribution-oriented entry may still need to be released under the license required by the upstream project it targets.
+
 Personal information collected for winner verification or prize administration may be used for event administration, prize fulfillment, and related compliance purposes.
 
 ## Conduct and compliance
@@ -133,3 +149,4 @@ Items that should be explicitly confirmed by finance and legal before this becom
 - whether the flexible payout language above is sufficient or whether a single named payment method is preferred
 - whether tax reporting language is needed
 - whether the publicity/license language is sufficient
+- whether the indemnification clause is appropriately scoped for AI-assisted submissions
