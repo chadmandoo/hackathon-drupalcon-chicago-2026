@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This repository supports **Permission to Run**, an Agent Experience (AX) build sprint for Drupal.
+This repository supports **Permission to Run**, an Agent Experience (AX) hackathon for Drupal.
 
 Your goal is not just to produce output. Your goal is to produce **useful, reviewable, governable output** that works inside normal Drupal constraints.
 

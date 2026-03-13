@@ -152,7 +152,7 @@ We will score entries on:
 - **Openness**
 - **Impact**
 
-Entries will be reviewed by Acquia and Drupal judges, with an AI-assisted pass used to help compare patterns and surface strong entries. Final decisions remain human-owned.
+Entries will be reviewed by Acquia and Drupal judges, with an AI-assisted pass used to help compare patterns and surface strong entries. Final decisions are made by human judges.
 
 See the full rubric in [`docs/judging-rubric.md`](./docs/judging-rubric.md).
 

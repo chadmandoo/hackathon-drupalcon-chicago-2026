@@ -3,7 +3,7 @@
 ## A. Table sign / QR sign
 
 **Permission to Run**  
-*The AX Build Sprint for Drupal*
+*The AX Hackathon for Drupal*
 
 Build with **any agent**.  
 Ship useful work.  
@@ -15,7 +15,8 @@ Scan to get:
 - submission templates
 - office hours and help
 
-**Entries due:** Wednesday, 12:00 PM `[TIME ZONE]`  
+**Prize-eligible teams need one on-site DrupalCon lead**  
+**Entries due:** Wednesday, March 25, 2026 at 12:00 PM Central Time  
 `[INSERT QR CODE]`
 
 ## B. Pull-up banner copy
@@ -34,6 +35,7 @@ To qualify, ship:
 - one real agent-work moment
 - one AX artifact
 - one Agent Experience Report
+- one on-site DrupalCon team lead for prize eligibility
 
 Scan for:
 - starter kit
@@ -42,8 +44,9 @@ Scan for:
 - booth office hours
 - help channels
 
-**Virtual-first. Booth-supported.**  
-**Deadline: Wednesday, 12:00 PM `[TIME ZONE]`**
+**Virtual-first. Remote collaborators welcome.**  
+**Prize-eligible teams need one on-site DrupalCon lead.**  
+**Deadline: Wednesday, March 25, 2026 at 12:00 PM Central Time**
 
 ## C. Loop slide copy
 
@@ -58,9 +61,11 @@ Ship guidance, guardrails, and reviewable work.
 - office hours
 - prizes
 
-**Deadline:** Wednesday at noon
+**Prize eligibility:** one on-site DrupalCon team lead required  
+**Deadline:** Wednesday, March 25, 2026 at 12:00 PM Central Time
 
 ## D. Tiny caption / footer options
 - Virtual-first hackathon. QR to join.
+- Remote collaborators welcome; prize-eligible teams need one on-site lead.
 - Starter kit, rubric, and submission link in one place.
 - Build fast. Keep Drupal in the loop.
