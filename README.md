@@ -166,7 +166,7 @@ Recommended categories:
 3. **Best Contribution Back to Drupal**
 
 See [`docs/prizes-and-categories.md`](./docs/prizes-and-categories.md).
-See the current rules working draft in [`docs/official-rules-draft.md`](./docs/official-rules-draft.md).
+See the official rules in [`docs/rules.md`](./docs/rules.md).
 
 If you want your entry considered for **Best Contribution Back to Drupal**, make sure the contribution can be shared under Drupal-compatible licensing. For Drupal-derivative code intended for Drupal.org-hosted projects, that generally means code that can be released under **GPL-2.0-or-later**.
 
@@ -182,7 +182,7 @@ If you want your entry considered for **Best Contribution Back to Drupal**, make
 
 - [`starter-kit/`](./starter-kit/) - starter docs, templates, examples, and the submission validator
 - [`docs/judging-rubric.md`](./docs/judging-rubric.md) - scoring model and judging flow
-- [`docs/official-rules-draft.md`](./docs/official-rules-draft.md) - first-pass contest rules draft for finance/legal review
+- [`docs/rules.md`](./docs/rules.md) - official contest rules
 - [`docs/prizes-and-categories.md`](./docs/prizes-and-categories.md) - prize/category recommendations
 - [`docs/organizer-assets/`](./docs/organizer-assets/) - reusable promo email and signage copy
 
