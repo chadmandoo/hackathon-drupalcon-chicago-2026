@@ -70,8 +70,6 @@ Avoid assumptions that only fit one tool or one team.
 ## Help and escalation
 
 - GitHub Issues: <https://github.com/acquia/hackathon-drupalcon-chicago-2026/issues>
-- Drupal Slack: channel to be posted here before launch
-- Office hours: schedule to be posted here before launch
 
 ## Suggested process
 

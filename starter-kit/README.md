@@ -22,7 +22,7 @@ This starter kit is here to help the **next principal** — human, agent, or hyb
 
 - Submission path: open a GitHub issue or pull request in this repo
 - Issues: <https://github.com/acquia/hackathon-drupalcon-chicago-2026/issues>
-- Help channel: GitHub Issues first; Drupal Slack channel will be posted before launch
+- Help channel: GitHub Issues
 - Rules: [`../docs/rules.md`](../docs/rules.md)
 - Prize eligibility: remote collaborators are fine, but each prize-eligible submission needs one on-site DrupalCon team lead
 - Validator command: `python3 starter-kit/tools/check_submission.py /path/to/submission`
