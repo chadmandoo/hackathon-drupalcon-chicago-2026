@@ -1,8 +1,0 @@
-openapi: 3.0.1
-info:
-  title: Hackathon Drupalcon Chicago 2026
-  description: Hackathon Drupalcon Chicago 2026 service
-  x-cortex-tag: acquia/hackathon-drupalcon-chicago-2026
-  x-cortex-git:
-    github:
-      repository: acquia/hackathon-drupalcon-chicago-2026
