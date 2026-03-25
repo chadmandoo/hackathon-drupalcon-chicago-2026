@@ -3,7 +3,7 @@
 **Team:**
 - Chad Peppers — remote ([drupal.org/u/chadmandoo](https://www.drupal.org/u/chadmandoo), GitHub: @chadmandoo)
 - Ryan Mott — on-site DrupalCon lead ([drupal.org/u/rymo](https://www.drupal.org/u/rymo), GitHub: @rmott-littler)
-- Monica McLaassen — contributor ([drupal.org/u/mclaassen](https://www.drupal.org/u/mclaassen))
+- Monica Claassen — contributor ([drupal.org/u/mclaassen](https://www.drupal.org/u/mclaassen))
 
 **Live Site:** https://thepromptpost.chadpeppers.dev
 **Drupal Backend:** https://drupalcon2026.chadpeppers.dev
