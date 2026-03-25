@@ -5,6 +5,7 @@ dependencies:
   config:
     - node.type.article
     - node.type.event
+    - node.type.job_listing
   module:
     - content_moderation
 _core:
@@ -82,4 +83,5 @@ type_settings:
     node:
       - article
       - event
+      - job_listing
   default_moderation_state: draft

@@ -1,0 +1,21 @@
+uuid: 2d48293a-1b99-41c8-8aa8-921a43e58de7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_remote
+    - node.type.job_listing
+id: node.job_listing.field_remote
+field_name: field_remote
+entity_type: node
+bundle: job_listing
+label: Remote
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Remote
+  off_label: On-site
+field_type: boolean

@@ -1,0 +1,80 @@
+uuid: 05db56fa-9246-435f-b51b-7c7acde7a6af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.job_listing.body
+    - field.field.node.job_listing.field_company
+    - field.field.node.job_listing.field_job_location
+    - field.field.node.job_listing.field_job_tags
+    - field.field.node.job_listing.field_remote
+    - node.type.job_listing
+  module:
+    - content_moderation
+    - path
+    - text
+id: node.job_listing.default
+targetEntityType: node
+bundle: job_listing
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 121
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 120
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  field_company: true
+  field_job_location: true
+  field_job_tags: true
+  field_remote: true
+  promote: true
+  sticky: true

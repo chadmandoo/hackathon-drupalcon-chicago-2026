@@ -1,0 +1,11 @@
+uuid: 48ef1675-f91f-416d-b959-fb98b89efcd1
+langcode: en
+status: true
+dependencies: {  }
+name: 'Job Listing'
+type: job_listing
+description: 'Classified job listings for The Prompt Post.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,19 @@
+uuid: 159dfdd4-22ee-44ab-926c-89eae09c108c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_job_tags
+    - node.type.job_listing
+id: node.job_listing.field_job_tags
+field_name: field_job_tags
+entity_type: node
+bundle: job_listing
+label: Tags
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,36 @@
+uuid: 1a737511-7940-4dd0-93aa-36bb986a61a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.job_listing.body
+    - field.field.node.job_listing.field_company
+    - field.field.node.job_listing.field_job_location
+    - field.field.node.job_listing.field_job_tags
+    - field.field.node.job_listing.field_remote
+    - node.type.job_listing
+  module:
+    - text
+    - user
+id: node.job_listing.default
+targetEntityType: node
+bundle: job_listing
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_company: true
+  field_job_location: true
+  field_job_tags: true
+  field_remote: true

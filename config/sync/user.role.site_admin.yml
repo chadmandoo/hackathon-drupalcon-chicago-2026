@@ -5,6 +5,7 @@ dependencies:
   config:
     - node.type.article
     - node.type.event
+    - node.type.job_listing
     - workflows.workflow.editorial
   module:
     - content_moderation
@@ -26,10 +27,13 @@ permissions:
   - 'administer users'
   - 'create article content'
   - 'create event content'
+  - 'create job_listing content'
   - 'delete any article content'
   - 'delete any event content'
+  - 'delete any job_listing content'
   - 'edit any article content'
   - 'edit any event content'
+  - 'edit any job_listing content'
   - 'grant simple_oauth codes'
   - 'use display_message tool'
   - 'use editorial transition archive'
