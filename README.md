@@ -5,7 +5,30 @@
 **Live Site:** https://thepromptpost.chadpeppers.dev
 **Drupal Backend:** https://drupalcon2026.chadpeppers.dev
 **MCP Endpoint:** https://drupalcon2026.chadpeppers.dev/_mcp
-**Source:** https://github.com/chadmandoo (repo link TBD)
+**Source:** https://github.com/chadmandoo/hackathon-drupalcon-chicago-2026
+**Demo Video:** [link TBD]
+**Presentation:** [presentation.md](presentation.md)
+
+---
+
+## TL;DR
+
+We connected Claude to a Drupal 11 newspaper site via MCP and proved that **desktop AI + Drupal is the future of editorial workflow** — not embedded AI chatbots in the admin UI.
+
+**The thesis:** The AI agent belongs on the editor's desktop, not inside the CMS. Claude becomes the editorial interface. Drupal stays the governed backend. The editor gets AI intelligence + local file access + CMS power in one conversation. This is what Cursor did for developers, applied to content management.
+
+**What works today (not theory — working product):**
+- Paste one URL into Claude, log in, manage the entire site
+- Writers draft and submit. Reviewers publish. Admins control everything. Drupal enforces the boundaries.
+- Claude reads your local research docs, writes articles, and publishes them to Drupal — no copy-paste, no file uploads
+- Charts, analytics, content planning, site status, user management — all from the desktop
+- Same MCP connection serves editors, developers, and sysadmins with role-appropriate tools
+
+**What we shipped:** 4 Drupal modules, 12 custom MCP tools, 32 total tools, 3-tier permission model, decoupled React SPA, contrib patch with `hook_mcp_server_enabled_tools_alter()`, and a live working demo.
+
+**The bottom line:** The future of Drupal editorial is not "AI in the admin UI." It's "Drupal as the governed backend for AI agents that live wherever the editor works."
+
+---
 
 ## What we built
 
@@ -26,6 +49,20 @@ AI agents need to interact with CMS platforms, but current approaches either emb
 3. The same rules apply to humans and agents — no special backdoors
 4. Multiple agents with different roles can connect simultaneously
 5. The setup is simple enough that a non-developer can connect Claude by pasting a URL
+
+## Why desktop AI, not embedded AI?
+
+Most approaches try to put AI inside Drupal — a chatbot in the admin, an assistant in the content form. We went the other direction: **the AI lives on the editor's desktop, Drupal is the governed backend.**
+
+This is fundamentally better:
+
+- **Local context:** The editor has research docs, competitor analysis, brand guidelines, notes — all on their machine. A desktop AI reads all of it. An embedded chatbot can't.
+- **No UI to build:** The AI IS the interface. No custom admin themes, no React components in Drupal, no UX design sprints. You talk to Claude and it manages the site.
+- **Cursor for content:** What Cursor did for developers (AI-native code editor), Claude + MCP does for content teams. The editing experience lives locally; the CMS is the governed backend.
+- **Multi-source intelligence:** Claude can read your local files, search the web, analyze data, generate charts, plan content calendars — then publish the result to Drupal. The CMS only sees clean, finished work.
+- **Tool-agnostic:** Any MCP-capable AI works. Claude today, others tomorrow. The Drupal side doesn't change.
+
+Claude Cowork (Claude.ai's desktop mode) already demonstrates this: gathering data, presenting graphs and analytics locally, planning content, then publishing. This is not a theory — it's a working workflow we used to build this project.
 
 ## What the agent did
 
@@ -148,12 +185,33 @@ curl -s https://thepromptpost.chadpeppers.dev/api/articles | python3 -m json.too
 curl -s https://drupalcon2026.chadpeppers.dev/.well-known/oauth-authorization-server | python3 -m json.tool
 ```
 
+## Challenges & lessons learned
+
+### MCP Server Module — Works Great, Setup Is Hard
+The `drupal/mcp_server` module is solid once configured, but getting there requires understanding OAuth 2.1, PKCE, Dynamic Client Registration, and server metadata simultaneously. We patched the module to fix bugs and add missing features (tool filtering, server instructions, JSON Schema fix). The module feels developer-first today — it needs a guided setup experience for site builders. That said, once running, the MCP connection is remarkably stable and performant.
+
+### Claude Desktop OAuth — Caching Friction
+The OAuth connection works well, but Claude caches aggressively. Switching between users (Writer vs Admin) requires disconnecting and reconnecting the MCP server entirely. The tool list persists in Claude's session even after server-side permission changes. These are UX friction points, not deal-breakers — the underlying protocol is sound. Regular users wouldn't switch roles frequently.
+
+### MCP Client Landscape — Growing but Uneven
+Claude Desktop and Claude.ai have full MCP support and work great. ChatGPT's web interface supports remote MCP servers, but the desktop app does not (as of March 2026). Any MCP-capable client should work in theory — the spec is open — but we couldn't test all clients in the available time.
+
+### Per-Tool Authorization Is a Feature
+When connecting, the user must grant access to each tool. This feels heavy the first time but it's actually an important governance layer: the human explicitly approves what the AI can do, adding consent on top of Drupal's role-based permissions.
+
+### What AI Didn't Do Well
+Honestly, not much. The AI (Claude Opus 4.6 via Claude Code) built the entire project — 4 modules, 12 tools, 15 articles, a React integration, OAuth debugging, patches, and documentation — in a single session. The bottleneck was never AI capability. It was the MCP module's setup complexity and OAuth configuration quirks. The developer and the setup process were the limiting factors, not the AI.
+
+## The future
+
+**Claude is becoming a Cursor-like experience.** Anthropic is building toward a desktop environment where AI can see and render visual output. Imagine Claude rendering your Drupal site directly in its interface — you edit an article in conversation, see the live preview update, and publish when satisfied. The workaround today is local static previews (which Claude handles), but native site rendering would be transformative.
+
+**This could be a contributed module ecosystem:** a "Drupal Editorial AI" distribution with pre-configured MCP tools, a setup wizard for OAuth, role-based tool presets, and visual preview integration. The technology works today. The ecosystem needs to catch up.
+
 ## Limits / known issues
 
 - PHP built-in server (not production Apache/Nginx) — adequate for demo, not production
 - Sudoku puzzle SPA integration is API-ready but the React component still has hardcoded fallback puzzles
-- Jobs are hardcoded in PHP, not a content type — a future version would use entity-backed jobs
-- The `content_publisher` tool's transition enforcement happens at execution time for actions that depend on current content state (state-specific checks require knowing the node's current moderation state)
 - `featured` flag logic could be refined — currently too many articles marked as featured
 
 ## Links
@@ -161,5 +219,7 @@ curl -s https://drupalcon2026.chadpeppers.dev/.well-known/oauth-authorization-se
 - Live site: https://thepromptpost.chadpeppers.dev
 - Drupal admin: https://drupalcon2026.chadpeppers.dev
 - MCP endpoint: https://drupalcon2026.chadpeppers.dev/_mcp
+- Presentation: [presentation.md](presentation.md)
 - Contrib patch: [patches/mcp_server--instructions-properties-delete-tools-alter.patch](patches/mcp_server--instructions-properties-delete-tools-alter.patch)
 - Architecture docs: [docs/](docs/)
+- Demo video: [link TBD]
