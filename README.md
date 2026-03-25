@@ -234,7 +234,7 @@ The MCP connection is all that's required. But the real power emerges when edito
 
 The idea: an editor's daily workspace is no longer the Drupal admin UI. It's a local folder with their research, notes, drafts, and brand guidelines. Claude has context from both the local files AND the Drupal site via MCP. The website is where content gets published; the local workspace is where content gets created.
 
-This is optional but recommended. A separate repo with the local workspace template is available at: **https://www.youtube.com/watch?v=V0B0RgSnsW0**
+This is optional but recommended. A separate repo with the local workspace template is available at: **[link TBD]**
 
 The MCP connection is the foundation. The local workspace is where it becomes transformative.
 
