@@ -1,0 +1,132 @@
+<?php
+
+/**
+ * @file
+ * Prompt Post News module.
+ *
+ * Provides editorial MCP tools and API endpoints for The Prompt Post,
+ * a fictitious AI news publication built for the Acquia "Permission to Run"
+ * AX Hackathon at DrupalCon Chicago 2026.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_mcp_server_enabled_tools_alter().
+ *
+ * Filters the MCP tools list based on the current user's permissions.
+ * Agents only discover tools their authenticated role can actually use.
+ * This is Drupal governance at the discovery layer — not just execution.
+ */
+function prompt_post_news_mcp_server_enabled_tools_alter(array &$tools): void {
+  $account = \Drupal::currentUser();
+
+  // Don't filter for anonymous (they see all tools but need auth to execute).
+  if ($account->isAnonymous()) {
+    return;
+  }
+
+  // Map MCP tool names to the minimum Drupal permission required.
+  // Tools not listed here are visible to all authenticated users.
+  $permission_map = [
+    // Admin-only tools: user management.
+    'user_block' => 'administer users',
+    'user_unblock' => 'administer users',
+    'user_add_role' => 'administer users',
+    'user_remove_role' => 'administer users',
+    // Admin-only tools: system.
+    'system_status' => 'administer site configuration',
+    'entity_bundle_list' => 'administer site configuration',
+    'send_email' => 'use send_email tool',
+    'recent_activity' => 'access site reports',
+    'entity_delete' => 'administer nodes',
+    // Reviewer+ tools.
+    'breaking_news' => 'edit any article content',
+  ];
+
+  foreach ($permission_map as $tool_name => $permission) {
+    if (isset($tools[$tool_name]) && !$account->hasPermission($permission)) {
+      unset($tools[$tool_name]);
+    }
+  }
+}
+
+/**
+ * Implements hook_help().
+ */
+function prompt_post_news_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.prompt_post_news':
+      $output = '<h2>Prompt Post News</h2>';
+      $output .= '<p>The core editorial module for <strong>The Prompt Post</strong>, an AI-themed news publication. This module provides MCP (Model Context Protocol) tools that allow AI assistants like Claude to manage news content through Drupal\'s permission system.</p>';
+
+      $output .= '<h3>Architecture</h3>';
+      $output .= '<p>This module sits between the MCP Server module and Drupal\'s content system. AI assistants connect via OAuth 2.1, and every tool call is gated by Drupal\'s standard permission and content moderation systems. The AI can only do what the authenticated user\'s role allows.</p>';
+
+      $output .= '<h3>Editorial Workflow</h3>';
+      $output .= '<p>Content follows the <strong>Editorial</strong> workflow with four states:</p>';
+      $output .= '<ul>';
+      $output .= '<li><strong>Draft</strong> — Initial content creation. Writers create articles here.</li>';
+      $output .= '<li><strong>In Review</strong> — Content submitted for editorial review.</li>';
+      $output .= '<li><strong>Published</strong> — Live on the site, visible to readers.</li>';
+      $output .= '<li><strong>Archived</strong> — Removed from active display, retained for records.</li>';
+      $output .= '</ul>';
+
+      $output .= '<h3>Permission Model</h3>';
+      $output .= '<table>';
+      $output .= '<thead><tr><th>Transition</th><th>Writer</th><th>Reviewer</th><th>Admin</th></tr></thead>';
+      $output .= '<tbody>';
+      $output .= '<tr><td>Create Draft</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>';
+      $output .= '<tr><td>Submit for Review</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>';
+      $output .= '<tr><td>Publish</td><td><strong>No</strong></td><td>Yes</td><td>Yes</td></tr>';
+      $output .= '<tr><td>Send Back to Draft</td><td><strong>No</strong></td><td>Yes</td><td>Yes</td></tr>';
+      $output .= '<tr><td>Archive</td><td><strong>No</strong></td><td><strong>No</strong></td><td>Yes</td></tr>';
+      $output .= '<tr><td>Restore from Archive</td><td><strong>No</strong></td><td><strong>No</strong></td><td>Yes</td></tr>';
+      $output .= '</tbody></table>';
+
+      $output .= '<h3>MCP Tools (9 tools)</h3>';
+      $output .= '<dl>';
+      $output .= '<dt><strong>editorial_dashboard</strong> (Read)</dt>';
+      $output .= '<dd>Content overview: counts by type and state, articles by category, pending reviews, author activity stats. Permission: <code>access content</code>.</dd>';
+      $output .= '<dt><strong>content_search</strong> (Read)</dt>';
+      $output .= '<dd>Full-text search across article titles and body text. Supports filtering by content type and category. Permission: <code>access content</code>.</dd>';
+      $output .= '<dt><strong>content_moderator</strong> (Read)</dt>';
+      $output .= '<dd>View content organized by moderation state. Lists all content in draft, review, published, or archived states with author and date information. Includes available workflow transitions. Permission: <code>access content</code>.</dd>';
+      $output .= '<dt><strong>content_publisher</strong> (Write)</dt>';
+      $output .= '<dd>Change content moderation state. Enforces the editorial workflow: writers can submit for review but cannot publish; reviewers can publish or send back; admins can archive and restore. Each transition checks the user\'s specific workflow permissions. Permission: role-based transition permissions.</dd>';
+      $output .= '<dt><strong>breaking_news</strong> (Write)</dt>';
+      $output .= '<dd>Flag an article as breaking news. Sets the breaking_news field, promotes to front page, and auto-publishes. Logs the action for audit trail. Permission: <code>edit any article content</code>.</dd>';
+      $output .= '<dt><strong>site_analytics</strong> (Read)</dt>';
+      $output .= '<dd>Content analytics: publishing trends over time, articles per category with latest dates, author productivity stats, and upcoming events calendar. Permission: <code>access content</code>.</dd>';
+      $output .= '<dt><strong>taxonomy_manager</strong> (Read/Write)</dt>';
+      $output .= '<dd>Manage article categories. List categories with article counts (read). Create, rename, or delete categories (write). Read permission: <code>access content</code>. Write permission: <code>administer taxonomy</code>.</dd>';
+      $output .= '<dt><strong>recent_activity</strong> (Read)</dt>';
+      $output .= '<dd>Activity timeline showing recent content changes, user logins, and system events from the watchdog log. Filterable by event type. Permission: <code>access site reports</code>.</dd>';
+      $output .= '<dt><strong>whos_online</strong> (Read)</dt>';
+      $output .= '<dd>Reports which users are currently online or recently active, including their roles and last access times. Permission: <code>access content</code>.</dd>';
+      $output .= '</dl>';
+
+      $output .= '<h3>API Endpoints</h3>';
+      $output .= '<dl>';
+      $output .= '<dt><code>GET /api/articles</code></dt>';
+      $output .= '<dd>Returns all published articles as JSON for the SPA frontend. Supports <code>?category=news|opinion</code> filter.</dd>';
+      $output .= '<dt><code>GET /api/articles/featured</code></dt>';
+      $output .= '<dd>Returns the current featured article (breaking news or most recently promoted).</dd>';
+      $output .= '<dt><code>GET /api/articles/{nid}</code></dt>';
+      $output .= '<dd>Returns a single article with full HTML body for the detail page.</dd>';
+      $output .= '<dt><code>GET /api/healthz</code></dt>';
+      $output .= '<dd>Health check endpoint returning <code>{"status": "ok"}</code>.</dd>';
+      $output .= '</dl>';
+
+      $output .= '<h3>Content Types</h3>';
+      $output .= '<ul>';
+      $output .= '<li><strong>Article</strong> — News articles with title, body, teaser, category (taxonomy), and breaking_news flag.</li>';
+      $output .= '<li><strong>Event</strong> — Community events with title, body, event date, and location.</li>';
+      $output .= '</ul>';
+
+      $output .= '<h3>Categories</h3>';
+      $output .= '<p>AI &amp; Machine Learning, Robotics, Ethics &amp; Policy, Prompt Engineering, Industry, Culture &amp; Satire.</p>';
+
+      return $output;
+  }
+}

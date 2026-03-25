@@ -1,0 +1,10 @@
+uuid: da5faf37-040c-4cd8-a7cc-b31f6c479974
+langcode: en
+status: true
+dependencies: {  }
+id: module_help
+mcp_tool_name: module_help
+tool_id: 'tool_api:prompt_post_news___module_help'
+description: null
+authentication_mode: required
+scopes: {  }

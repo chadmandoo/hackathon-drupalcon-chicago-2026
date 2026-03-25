@@ -1,0 +1,38 @@
+prompt_post_news.api.articles:
+  path: '/api/articles'
+  defaults:
+    _controller: '\Drupal\prompt_post_news\Controller\NewsApiController::articles'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET]
+  options:
+    no_cache: TRUE
+
+prompt_post_news.api.featured:
+  path: '/api/articles/featured'
+  defaults:
+    _controller: '\Drupal\prompt_post_news\Controller\NewsApiController::featured'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET]
+  options:
+    no_cache: TRUE
+
+prompt_post_news.api.article_detail:
+  path: '/api/articles/{nid}'
+  defaults:
+    _controller: '\Drupal\prompt_post_news\Controller\NewsApiController::detail'
+  requirements:
+    _access: 'TRUE'
+    nid: \d+
+  methods: [GET]
+  options:
+    no_cache: TRUE
+
+prompt_post_news.api.health:
+  path: '/api/healthz'
+  defaults:
+    _controller: '\Drupal\prompt_post_news\Controller\NewsApiController::health'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET]

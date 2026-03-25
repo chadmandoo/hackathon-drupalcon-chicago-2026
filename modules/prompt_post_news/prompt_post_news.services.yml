@@ -1,0 +1,4 @@
+services:
+  logger.channel.prompt_post_news:
+    parent: logger.channel_base
+    arguments: ['prompt_post_news']

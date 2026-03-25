@@ -1,0 +1,10 @@
+uuid: bfc1fea3-73e6-4ba5-b51a-5fa754199629
+langcode: en
+status: true
+dependencies: {  }
+id: content_search
+mcp_tool_name: content_search
+tool_id: 'tool_api:prompt_post_news___content_search'
+description: null
+authentication_mode: required
+scopes: {  }

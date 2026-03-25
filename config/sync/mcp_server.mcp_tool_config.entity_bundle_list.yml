@@ -1,0 +1,10 @@
+uuid: cab77643-9217-4e12-b7d1-0d92dcc1dafa
+langcode: en
+status: true
+dependencies: {  }
+id: entity_bundle_list
+mcp_tool_name: entity_bundle_list
+tool_id: 'tool_api:entity_bundle_list'
+description: null
+authentication_mode: required
+scopes: {  }

@@ -1,0 +1,10 @@
+uuid: f9d93b75-033e-417a-a824-a43e6be69287
+langcode: en
+status: true
+dependencies: {  }
+id: breaking_news
+mcp_tool_name: breaking_news
+tool_id: 'tool_api:prompt_post_news___breaking_news'
+description: null
+authentication_mode: required
+scopes: {  }

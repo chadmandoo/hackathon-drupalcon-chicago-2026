@@ -1,0 +1,10 @@
+uuid: 85c79823-19bc-4cb6-b7d8-f82beae5c71d
+langcode: en
+status: true
+dependencies: {  }
+id: entity_revision_add
+mcp_tool_name: entity_revision_add
+tool_id: 'tool_api:entity_revision_add'
+description: null
+authentication_mode: required
+scopes: {  }

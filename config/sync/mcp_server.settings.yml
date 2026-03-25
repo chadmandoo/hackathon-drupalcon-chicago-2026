@@ -1,0 +1,10 @@
+instructions: |-
+  You are connected to The Prompt Post, a satirical AI news publication built on Drupal 11. This site demonstrates MCP-powered content management with permission-based governance.
+
+  START HERE: Run the 'site_briefing' tool to get a full orientation — your role, available content, tools, and what you can do. Your access depends on which user authorized this connection (Writer, Reviewer, or Admin).
+
+  KEY TOOLS: site_briefing (orientation), editorial_dashboard (content overview), content_search (find articles), content_publisher (manage workflow states), breaking_news (flag articles), module_help (read module docs), puzzle_manager (weekly Sudoku).
+
+  EDITORIAL WORKFLOW: draft → review → published → archived. Writers cannot publish. Reviewers cannot archive. Drupal enforces these boundaries on every action.
+
+  FRONTEND: Changes you make appear live at https://thepromptpost.chadpeppers.dev

@@ -1,0 +1,10 @@
+uuid: 9937a5fc-916c-41a0-8e40-6e4d69e11280
+langcode: en
+status: true
+dependencies: {  }
+id: log_message
+mcp_tool_name: log_message
+tool_id: 'tool_api:log_message'
+description: null
+authentication_mode: required
+scopes: {  }

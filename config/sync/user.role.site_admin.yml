@@ -1,0 +1,46 @@
+uuid: c34a0570-4f3d-4cce-a667-e9c2acb3b8be
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - node.type.event
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - node
+    - simple_oauth
+    - system
+    - tool_system
+    - toolbar
+id: site_admin
+label: 'Site Admin'
+weight: 5
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access site reports'
+  - 'access toolbar'
+  - 'administer nodes'
+  - 'administer site configuration'
+  - 'administer users'
+  - 'create article content'
+  - 'create event content'
+  - 'delete any article content'
+  - 'delete any event content'
+  - 'edit any article content'
+  - 'edit any event content'
+  - 'grant simple_oauth codes'
+  - 'use display_message tool'
+  - 'use editorial transition archive'
+  - 'use editorial transition archived_draft'
+  - 'use editorial transition archived_published'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition publish'
+  - 'use editorial transition send_back'
+  - 'use editorial transition submit_for_review'
+  - 'use log_message tool'
+  - 'use send_email tool'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'

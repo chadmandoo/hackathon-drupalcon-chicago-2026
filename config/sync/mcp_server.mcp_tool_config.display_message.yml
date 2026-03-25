@@ -1,0 +1,10 @@
+uuid: 3faeba42-2003-4cbf-9d3c-04f9198555e4
+langcode: en
+status: true
+dependencies: {  }
+id: display_message
+mcp_tool_name: display_message
+tool_id: 'tool_api:display_message'
+description: null
+authentication_mode: required
+scopes: {  }

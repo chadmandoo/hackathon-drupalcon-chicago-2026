@@ -1,0 +1,14 @@
+uuid: 38b4dec2-1b5e-46a8-ba64-a1f1f13a05f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.administrator
+  module:
+    - user
+id: user_add_role_action.administrator
+label: 'Add the Administrator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: administrator

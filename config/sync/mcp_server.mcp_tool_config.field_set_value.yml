@@ -1,0 +1,10 @@
+uuid: 7f1b27f5-ec76-4f2c-9d33-5017d678cc10
+langcode: en
+status: true
+dependencies: {  }
+id: field_set_value
+mcp_tool_name: field_set_value
+tool_id: 'tool_api:field_set_value'
+description: null
+authentication_mode: required
+scopes: {  }

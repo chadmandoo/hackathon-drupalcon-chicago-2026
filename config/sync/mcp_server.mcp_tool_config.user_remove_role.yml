@@ -1,0 +1,10 @@
+uuid: d31c9684-a1f1-420c-a2fc-2f53b31146a2
+langcode: en
+status: true
+dependencies: {  }
+id: user_remove_role
+mcp_tool_name: user_remove_role
+tool_id: 'tool_api:user_remove_role'
+description: null
+authentication_mode: required
+scopes: {  }

@@ -1,0 +1,7 @@
+name: 'Prompt Post Puzzles'
+type: module
+description: 'Sudoku puzzle generator and management for The Prompt Post.'
+core_version_requirement: ^10 || ^11
+package: Prompt Post
+dependencies:
+  - tool:tool

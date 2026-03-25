@@ -1,0 +1,10 @@
+uuid: 99dc5f75-0ed5-4b2b-bcbd-e44968bf6b27
+langcode: en
+status: true
+dependencies: {  }
+id: entity_save
+mcp_tool_name: entity_save
+tool_id: 'tool_api:entity_save'
+description: null
+authentication_mode: required
+scopes: {  }

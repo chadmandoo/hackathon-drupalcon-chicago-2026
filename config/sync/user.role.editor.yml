@@ -1,0 +1,33 @@
+uuid: 81209d97-3c89-4a86-b36a-30e54d5eba04
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - node.type.event
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - node
+    - simple_oauth
+    - system
+    - tool_system
+    - toolbar
+id: editor
+label: Writer
+weight: 4
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access toolbar'
+  - 'create article content'
+  - 'create event content'
+  - 'edit own article content'
+  - 'edit own event content'
+  - 'grant simple_oauth codes'
+  - 'use display_message tool'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition submit_for_review'
+  - 'use log_message tool'
+  - 'view latest version'
+  - 'view own unpublished content'

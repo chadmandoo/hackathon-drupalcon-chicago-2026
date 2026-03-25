@@ -1,0 +1,10 @@
+uuid: 38228948-97a6-4bbf-aea4-1e21e91687be
+langcode: en
+status: true
+dependencies: {  }
+id: entity_type_list
+mcp_tool_name: entity_type_list
+tool_id: 'tool_api:entity_type_list'
+description: null
+authentication_mode: required
+scopes: {  }

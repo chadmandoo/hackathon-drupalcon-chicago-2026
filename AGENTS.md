@@ -1,82 +1,100 @@
-# AGENTS.md
+# AGENTS.md — The Prompt Post
 
 ## Purpose
 
-This repository supports **Permission to Run**, an Agent Experience (AX) hackathon for Drupal.
+This file provides guidance for any AI agent connecting to The Prompt Post Drupal site via MCP. Follow these instructions to work safely and effectively within Drupal's governance model.
 
-Your goal is not just to produce output. Your goal is to produce **useful, reviewable, governable output** that works inside normal Drupal constraints.
+## First steps
+
+1. **Run `site_briefing` immediately.** This returns your role, available tools, content stats, and suggested actions. Your tool set depends on which user authorized the OAuth connection.
+2. **Understand your role.** Writers can draft and submit for review. Reviewers can publish and send back. Admins have full control. Don't attempt actions outside your role — the system will deny them with an explanation.
+3. **Use `editorial_dashboard`** to see the current content state before making changes.
 
 ## Core rules
 
-1. **Use the same safety model humans use.**
-   - Respect permissions, workflows, schema, revisions, and diffs.
-   - Do not invent agent-only backdoors.
+### 1. Drupal is the governor
+Every action you take goes through Drupal's permission system. The same rules that apply to human editors apply to you. There are no agent-specific backdoors or elevated permissions.
 
-2. **Prefer reviewable output.**
-   - Drafts over direct publishing
-   - Diffs over opaque changes
-   - Small steps over giant mutations
+### 2. Respect the editorial workflow
+Content follows: **draft → review → published → archived**.
+- Create content as drafts
+- Submit for review when ready
+- Only publish if your role permits it
+- Provide revision log messages explaining your changes
 
-3. **Show your work.**
-   - Keep a run log
-   - Record commands, prompts, and tool use
-   - Explain what you changed and why
+### 3. Prefer reviewable output
+- Create drafts, not published content (unless explicitly asked)
+- Use `entity_revision_add` before editing existing content
+- Include descriptive revision log messages
+- Use `content_publisher` with clear `revision_log` values
 
-4. **Leave the next principal in a better position.**
-   - Add context, templates, checks, or guidance where possible
+### 4. Show your work
+- Use `log_message` to record significant actions
+- Provide context in revision logs
+- When creating articles, explain the editorial rationale
 
-## Good hackathon tasks
+## Available tool categories
 
-- draft content safely
-- propose configuration changes as diffs
-- summarize and triage issues
-- generate PRs or patches with explanation
-- add validators, tool mappings, or runbooks
-- improve agent guidance for a real Drupal workflow
+### Reading (safe, no side effects)
+- `site_briefing` — Start here. Full orientation.
+- `editorial_dashboard` — Content overview and stats
+- `content_search` — Find articles by keyword
+- `content_moderator` — View content by workflow state
+- `site_analytics` — Trends and category breakdown
+- `whos_online` — Active users
+- `module_help` — Read any module's documentation
+- `entity_list`, `entity_load_by_id`, `entity_field_values` — Content CRUD reads
 
-## Preferred output shape
+### Writing (creates revisions, state changes)
+- `content_publisher` — Workflow transitions (role-restricted)
+- `breaking_news` — Flag articles as breaking (reviewer+ only)
+- `taxonomy_manager` — Manage categories
+- `entity_save`, `field_set_value`, `entity_stub` — Content CRUD writes
+- `puzzle_manager` — Generate weekly Sudoku (admin only)
 
-A strong submission usually contains:
-- one meaningful work artifact
-- one reusable AX artifact
-- a README
-- a run log
-- an Agent Experience Report
+### Admin (restricted to site_admin role)
+- `user_block`, `user_unblock`, `user_add_role`, `user_remove_role`
+- `system_status`, `recent_activity`, `send_email`
+- `entity_delete`, `entity_bundle_list`
 
-## Validation expectations
+## Content structure
 
-Before submitting:
-- run tests if available
-- run linters if available
-- note clearly what you could not validate
-- include exact commands where possible
+### Article content type
+- **Fields:** title, body (HTML), field_teaser (summary), field_category (taxonomy), field_breaking_news (boolean)
+- **Workflow:** Editorial (draft → review → published → archived)
+- **Categories:** AI & Machine Learning, Robotics, Ethics & Policy, Prompt Engineering, Industry, Culture & Satire
 
-## Safety and scope
+### Category → SPA section mapping
+- News: AI & Machine Learning, Robotics, Prompt Engineering, Industry
+- Opinion: Ethics & Policy, Culture & Satire
 
-- Do not use secrets you were not explicitly given
-- Do not claim actions you did not actually perform
-- Do not represent uncertain output as verified
-- Do not bypass review, moderation, or approval processes
-- Prefer reversible or reviewable changes
+### Event content type
+- **Fields:** title, body, field_event_date, field_location
+- **Workflow:** Editorial
 
-## Layering guidance
+## When you get "Access denied"
 
-When creating guidance or configuration, make it composable:
+This is the system working correctly. The error message will tell you:
+- Which permission you need
+- Which roles you currently have
+- What action you attempted
 
-**Core -> Project -> Local/Dev**
+Do NOT try to work around access denials. Instead, inform the user that their role doesn't permit the action and suggest they connect with a higher-privileged account.
 
-Avoid assumptions that only fit one tool or one team.
+## Creating articles
 
-## Help and escalation
+When asked to write an article:
+1. Use `entity_stub` to create an unsaved article entity
+2. Use `field_set_value` to set body, teaser, category, etc.
+3. Use `entity_save` to save as draft
+4. Use `content_publisher` with `action: submit_for_review` if the article is ready
+5. Never bypass the workflow — let the reviewer publish
 
-- GitHub Issues: <https://github.com/acquia/hackathon-drupalcon-chicago-2026/issues>
+## Safety boundaries
 
-## Suggested process
-
-1. Read this file and the event README
-2. Choose a narrow goal
-3. Identify how Drupal will remain in the loop
-4. Make a small, reviewable change
-5. Add one reusable AX improvement
-6. Document what happened
-7. Run the submission validator
+- Do not attempt to create admin users or escalate permissions
+- Do not delete content without explicit human approval
+- Do not mark content as breaking news without editorial justification
+- Do not send emails without human confirmation of the content
+- Prefer drafts over direct publication in all cases
+- When uncertain about scope, ask the human before acting

@@ -1,0 +1,10 @@
+uuid: 11250f5e-cbed-4d7a-9dc4-77a5eb91354a
+langcode: en
+status: true
+dependencies: {  }
+id: user_add_role
+mcp_tool_name: user_add_role
+tool_id: 'tool_api:user_add_role'
+description: null
+authentication_mode: required
+scopes: {  }

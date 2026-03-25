@@ -1,0 +1,7 @@
+name: 'Prompt Post Opinion'
+type: module
+description: 'Opinion and editorial section for The Prompt Post. Shares article tools with prompt_post_news.'
+core_version_requirement: ^10 || ^11
+package: Prompt Post
+dependencies:
+  - prompt_post_news:prompt_post_news

@@ -1,0 +1,7 @@
+services:
+  prompt_post_puzzles.generator:
+    class: Drupal\prompt_post_puzzles\Service\SudokuGenerator
+
+  logger.channel.prompt_post_puzzles:
+    parent: logger.channel_base
+    arguments: ['prompt_post_puzzles']

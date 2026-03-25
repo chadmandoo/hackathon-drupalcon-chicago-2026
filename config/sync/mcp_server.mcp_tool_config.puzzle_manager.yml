@@ -1,0 +1,10 @@
+uuid: 87ae0189-838a-4e71-a894-1301b1e80e1e
+langcode: en
+status: true
+dependencies: {  }
+id: puzzle_manager
+mcp_tool_name: puzzle_manager
+tool_id: 'tool_api:prompt_post_puzzles___puzzle_manager'
+description: null
+authentication_mode: required
+scopes: {  }

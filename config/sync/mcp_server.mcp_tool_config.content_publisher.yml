@@ -1,0 +1,10 @@
+uuid: d29bd82f-bf5d-45cb-aa75-d131045031d2
+langcode: en
+status: true
+dependencies: {  }
+id: content_publisher
+mcp_tool_name: content_publisher
+tool_id: 'tool_api:prompt_post_news___content_publisher'
+description: null
+authentication_mode: required
+scopes: {  }

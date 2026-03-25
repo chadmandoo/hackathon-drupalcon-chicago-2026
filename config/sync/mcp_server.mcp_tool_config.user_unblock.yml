@@ -1,0 +1,10 @@
+uuid: d99cbf7b-f687-4c71-8276-2948e2912907
+langcode: en
+status: true
+dependencies: {  }
+id: user_unblock
+mcp_tool_name: user_unblock
+tool_id: 'tool_api:user_unblock'
+description: null
+authentication_mode: required
+scopes: {  }

@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Prompt Post Puzzles module.
+ *
+ * Provides Sudoku puzzle generation and management for The Prompt Post.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function prompt_post_puzzles_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.prompt_post_puzzles':
+      $output = '<h2>Prompt Post Puzzles</h2>';
+      $output .= '<p>Generates and manages Sudoku puzzles for <strong>The Prompt Post</strong> Games section. Includes a PHP-based puzzle generator, Drupal configuration storage, and an MCP tool that allows AI assistants to generate and manage the weekly puzzle.</p>';
+
+      $output .= '<h3>Sudoku Generator</h3>';
+      $output .= '<p>The <code>SudokuGenerator</code> service creates valid 9x9 Sudoku puzzles using a backtracking algorithm. Features:</p>';
+      $output .= '<ul>';
+      $output .= '<li><strong>Three difficulty levels:</strong> Easy (36-42 clues), Medium (28-35 clues), Hard (22-27 clues).</li>';
+      $output .= '<li><strong>Seeded generation:</strong> Provide an integer seed for reproducible puzzles. Use week numbers (e.g., <code>202613</code>) for weekly puzzles.</li>';
+      $output .= '<li><strong>Complete solutions:</strong> Every generated puzzle includes the full solution grid alongside the masked puzzle board.</li>';
+      $output .= '</ul>';
+
+      $output .= '<h3>MCP Tool: puzzle_manager</h3>';
+      $output .= '<p>Allows AI assistants to manage the weekly puzzle through MCP.</p>';
+      $output .= '<dl>';
+      $output .= '<dt><code>get_current</code> (Read)</dt>';
+      $output .= '<dd>Returns the active puzzle with difficulty, clue count, and source information. Permission: <code>access content</code>.</dd>';
+      $output .= '<dt><code>generate_new</code> (Write)</dt>';
+      $output .= '<dd>Generates a fresh Sudoku puzzle and sets it as the current weekly puzzle. Accepts optional difficulty and seed parameters. The puzzle is stored in Drupal config and immediately served to the SPA. Permission: <code>administer site configuration</code>.</dd>';
+      $output .= '<dt><code>set_difficulty</code> (Write)</dt>';
+      $output .= '<dd>Changes the default difficulty level for puzzle generation. Clears the current custom puzzle so the next fetch regenerates. Permission: <code>administer site configuration</code>.</dd>';
+      $output .= '</dl>';
+
+      $output .= '<h3>API Endpoint</h3>';
+      $output .= '<dl>';
+      $output .= '<dt><code>GET /api/puzzles/current</code></dt>';
+      $output .= '<dd>Returns the current puzzle as JSON with <code>difficulty</code> and <code>puzzle</code> (containing <code>solution</code> and <code>mask</code> 9x9 grids). If a custom puzzle has been generated via MCP, it is returned; otherwise, a deterministic puzzle is generated from the stored index.</dd>';
+      $output .= '</dl>';
+
+      $output .= '<h3>Configuration</h3>';
+      $output .= '<p>Stored in <code>prompt_post_puzzles.settings</code>:</p>';
+      $output .= '<ul>';
+      $output .= '<li><code>current_puzzle_index</code> — Seed/index for deterministic generation.</li>';
+      $output .= '<li><code>difficulty</code> — Current difficulty level (easy/medium/hard).</li>';
+      $output .= '<li><code>custom_puzzle</code> — JSON-encoded puzzle data when generated via MCP.</li>';
+      $output .= '</ul>';
+
+      $output .= '<h3>Demo Moment</h3>';
+      $output .= '<p>"Hey Claude, generate a new hard Sudoku puzzle for this week\'s edition." Claude calls <code>puzzle_manager</code> with <code>action=generate_new, difficulty=hard</code>, the puzzle is stored in config, and the SPA\'s Games section immediately shows the new puzzle.</p>';
+
+      return $output;
+  }
+}

@@ -1,0 +1,88 @@
+diff --git a/mcp_server.routing.yml b/mcp_server.routing.yml
+index d1b4360..c0440e5 100644
+--- a/mcp_server.routing.yml
++++ b/mcp_server.routing.yml
+@@ -7,7 +7,7 @@ mcp_server.handle:
+     # The default permission is 'access content'. Consider creating a custom
+     # permission for production deployments to restrict MCP server access.
+     _permission: 'access content'
+-  methods: [GET, POST]
++  methods: [GET, POST, DELETE]
+   options:
+     # Allow both cookie and OAuth2 authentication.
+     # OAuth authentication failures will be handled gracefully by the
+diff --git a/src/McpBridgeService.php b/src/McpBridgeService.php
+index f6db243..4c59cd6 100644
+--- a/src/McpBridgeService.php
++++ b/src/McpBridgeService.php
+@@ -23,7 +23,7 @@ use Mcp\Server\ClientGateway;
+  * prompts by combining Tool plugin discovery with configuration entity
+  * overrides.
+  */
+-final class McpBridgeService {
++class McpBridgeService {
+ 
+   /**
+    * Constructs an McpBridgeService.
+@@ -96,6 +96,11 @@ final class McpBridgeService {
+         $enabled_tools[$mcp_name] = $this->buildToolMetadata($config, $tool_definition);
+       }
+ 
++      // Allow modules to alter the enabled tools list.
++      // Modules can filter, modify, or add tools based on the current user,
++      // request context, or any other criteria.
++      \Drupal::moduleHandler()->alter('mcp_server_enabled_tools', $enabled_tools);
++
+       return $enabled_tools;
+     }
+     catch (\Exception $e) {
+@@ -107,6 +112,7 @@ final class McpBridgeService {
+     }
+   }
+ 
++
+   /**
+    * Gets a specific MCP tool by its MCP name.
+    *
+diff --git a/src/McpServerFactory.php b/src/McpServerFactory.php
+index 75a1f5b..2f8f3e4 100644
+--- a/src/McpServerFactory.php
++++ b/src/McpServerFactory.php
+@@ -73,6 +73,9 @@ final class McpServerFactory {
+       $pagination_limit = 50;
+     }
+ 
++    // Load server instructions from config.
++    $instructions = $config->get('instructions') ?: NULL;
++
+     $builder = Server::builder()
+       ->setServerInfo($server_name, $server_version)
+       ->setPaginationLimit($pagination_limit)
+@@ -80,6 +83,10 @@ final class McpServerFactory {
+       ->setEventDispatcher($this->eventDispatcher)
+       ->setSession($this->sessionStore);
+ 
++    if ($instructions) {
++      $builder->setInstructions($instructions);
++    }
++
+     // Register custom handler to intercept tool calls.
+     $customHandler = new CustomCallToolHandler($this->mcpBridge, $this->logger);
+     $builder->addRequestHandler($customHandler);
+diff --git a/src/Plugin/Tool/ToolApi.php b/src/Plugin/Tool/ToolApi.php
+index a621798..a4c0207 100644
+--- a/src/Plugin/Tool/ToolApi.php
++++ b/src/Plugin/Tool/ToolApi.php
+@@ -234,9 +234,11 @@ final class ToolApi extends ToolPluginBase {
+       }
+     }
+ 
++    // Use stdClass for empty properties so json_encode produces {}
++    // instead of [] which breaks MCP clients expecting a JSON object.
+     $schema = [
+       'type' => 'object',
+-      'properties' => $properties,
++      'properties' => empty($properties) ? new \stdClass() : $properties,
+     ];
+ 
+     if (!empty($required)) {

@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Prompt Post Opinion module.
+ *
+ * Provides the Opinion & Editorial section for The Prompt Post.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function prompt_post_opinion_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.prompt_post_opinion':
+      $output = '<h2>Prompt Post Opinion</h2>';
+      $output .= '<p>Marks the Opinion &amp; Editorial section of <strong>The Prompt Post</strong>. Opinion articles share the same Article content type and editorial workflow as news articles, managed through the <code>prompt_post_news</code> module.</p>';
+
+      $output .= '<h3>How It Works</h3>';
+      $output .= '<p>Articles are classified as "opinion" on the frontend based on their taxonomy category. Articles tagged with <strong>Ethics &amp; Policy</strong> or <strong>Culture &amp; Satire</strong> categories appear in the Opinion section of the SPA. All other categories appear in News.</p>';
+
+      $output .= '<h3>Category Mapping</h3>';
+      $output .= '<table>';
+      $output .= '<thead><tr><th>Drupal Category</th><th>SPA Section</th></tr></thead>';
+      $output .= '<tbody>';
+      $output .= '<tr><td>AI &amp; Machine Learning</td><td>News</td></tr>';
+      $output .= '<tr><td>Robotics</td><td>News</td></tr>';
+      $output .= '<tr><td>Prompt Engineering</td><td>News</td></tr>';
+      $output .= '<tr><td>Industry</td><td>News</td></tr>';
+      $output .= '<tr><td>Ethics &amp; Policy</td><td>Opinion</td></tr>';
+      $output .= '<tr><td>Culture &amp; Satire</td><td>Opinion</td></tr>';
+      $output .= '</tbody></table>';
+
+      $output .= '<h3>Tools</h3>';
+      $output .= '<p>This module does not define its own MCP tools. Opinion articles are managed using the same tools provided by <code>prompt_post_news</code>: content_search, content_publisher, editorial_dashboard, etc. To create an opinion piece via MCP, create an article and assign it to the "Ethics &amp; Policy" or "Culture &amp; Satire" category.</p>';
+
+      $output .= '<h3>Dependencies</h3>';
+      $output .= '<p>Depends on <code>prompt_post_news</code> for all editorial tools, API endpoints, and content type definitions.</p>';
+
+      return $output;
+  }
+}
