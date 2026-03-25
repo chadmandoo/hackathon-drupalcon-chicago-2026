@@ -127,46 +127,75 @@ The Editorial workflow (draft → review → published → archived) enforces re
 
 ## How to run / demo
 
-### Connect from Claude.ai (simplest)
+### Live demo
+
+The fastest way to see this in action is the demo video: **[link TBD]**
+
+The live site is running at:
+- **Frontend:** https://thepromptpost.chadpeppers.dev
+- **MCP endpoint:** https://drupalcon2026.chadpeppers.dev/_mcp
+
+### Connect from Claude.ai
 
 1. Go to Claude.ai Settings → Integrations/MCP
-2. Add server: `https://drupalcon2026.chadpeppers.dev/_mcp`
-3. Log in as any user when prompted:
-   - `sarah_editor` / `editor123` — Writer (22 tools)
-   - `alex_reviewer` / `reviewer123` — Reviewer (23 tools)
-   - `jane_admin` / `admin123` — Admin (32 tools)
-4. Start a new conversation
-5. Ask Claude to run `site_briefing`
+2. Add server URL: `https://drupalcon2026.chadpeppers.dev/_mcp`
+3. Claude discovers OAuth automatically — log in when prompted
+4. Start a new conversation and ask Claude to run `site_briefing`
 
-### Demo flow
-
-1. Connect as `sarah_editor` (Writer)
-2. Ask: "What's the editorial dashboard look like?"
-3. Ask: "Search for articles about AI"
-4. Ask: "Create a new article about robot chefs"
-5. Ask: "Publish that article" → **DENIED** (Writer can't publish)
-6. Disconnect, reconnect as `alex_reviewer`
-7. Ask: "What content is pending review?"
-8. Ask: "Publish the robot chefs article" → **SUCCESS**
-9. Visit https://thepromptpost.chadpeppers.dev → article appears on the live site
+Different Drupal roles see different tools: Writers (22 tools) can draft but not publish. Reviewers (23 tools) can publish. Admins (32 tools) have full control.
 
 ### Local setup
 
 ```bash
-git clone <repo>
+# Clone and install
+git clone https://github.com/chadmandoo/hackathon-drupalcon-chicago-2026.git
+cd hackathon-drupalcon-chicago-2026
+
+# Set up Drupal (requires PHP 8.3+, PostgreSQL or MySQL, Composer)
 composer install
+drush site:install standard --db-url=pgsql://user:pass@localhost/dbname
+
+# Import the site configuration
+drush config:import -y
+
+# Apply the MCP server contrib patch
+cd web/modules/contrib/mcp_server
+git apply ../../../../patches/mcp_server--instructions-properties-delete-tools-alter.patch
+cd ../../../..
+drush cr
+
 # Generate OAuth keys
 mkdir -p oauth-keys
 openssl genrsa -out oauth-keys/private.key 2048
 openssl rsa -in oauth-keys/private.key -pubout -out oauth-keys/public.key
-# Configure Drupal (database, settings.php)
-drush site:install standard
-drush en prompt_post_news prompt_post_jobs prompt_post_puzzles prompt_post_opinion
-# Apply contrib patch
-cd web/modules/contrib/mcp_server
-git apply ../../../../patches/mcp_server--instructions-properties-delete-tools-alter.patch
+chmod 600 oauth-keys/private.key
+
+# Configure OAuth key paths
+drush config:set simple_oauth.settings public_key $(pwd)/oauth-keys/public.key -y
+drush config:set simple_oauth.settings private_key $(pwd)/oauth-keys/private.key -y
+
+# Set the registration endpoint to your domain
+drush config:set simple_oauth_server_metadata.settings registration_endpoint "https://your-domain.com/oauth/register" -y
+
+# Create users with roles
+drush user:create writer_user --password=changeme
+drush user:role:add editor writer_user
+drush user:create reviewer_user --password=changeme
+drush user:role:add reviewer reviewer_user
+drush user:create admin_user --password=changeme
+drush user:role:add site_admin admin_user
+
+# Grant OAuth permission to all roles
+drush role:perm:add editor 'grant simple_oauth codes'
+drush role:perm:add reviewer 'grant simple_oauth codes'
+drush role:perm:add site_admin 'grant simple_oauth codes'
+
 drush cr
 ```
+
+Then connect from Claude.ai using `https://your-domain.com/_mcp`.
+
+See [docs/mcp-setup.md](docs/mcp-setup.md) for detailed configuration including reverse proxy setup and troubleshooting.
 
 See [docs/mcp-setup.md](docs/mcp-setup.md) for detailed OAuth and MCP configuration.
 
