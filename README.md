@@ -10,7 +10,7 @@
 **MCP Endpoint:** https://drupalcon2026.chadpeppers.dev/_mcp
 **Source:** https://github.com/chadmandoo/hackathon-drupalcon-chicago-2026
 **Demo Video:** [link TBD]
-**Presentation:** [presentation.html](presentation.html) (open in browser) · [presentation.md](presentation.md) (markdown)
+**Presentation:** [View in browser](https://htmlpreview.github.io/?https://github.com/chadmandoo/hackathon-drupalcon-chicago-2026/blob/main/presentation.html) · [presentation.md](presentation.md) (markdown)
 
 ---
 
@@ -20,7 +20,7 @@ If you only have 5 minutes, here's the path:
 
 | Step | What | Link |
 |------|------|------|
-| 1 | **Read the presentation** (9 slides — the vision, tools, governance) | [presentation.html](presentation.html) |
+| 1 | **Read the presentation** (9 slides — the vision, tools, governance) | [View presentation](https://htmlpreview.github.io/?https://github.com/chadmandoo/hackathon-drupalcon-chicago-2026/blob/main/presentation.html) |
 | 2 | **Watch the demo video** (see everything in action) | [link TBD] |
 | 3 | **Browse the live site** (the newspaper Claude manages) | [thepromptpost.chadpeppers.dev](https://thepromptpost.chadpeppers.dev) |
 
