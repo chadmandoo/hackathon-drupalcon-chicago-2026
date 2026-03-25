@@ -1,0 +1,9 @@
+uuid: 646358a5-aeb8-4620-ae80-ad72551435d5
+langcode: en
+status: true
+dependencies: {  }
+name: Category
+vid: category
+description: 'Article categories for the Greenville Gazette'
+weight: 0
+new_revision: false

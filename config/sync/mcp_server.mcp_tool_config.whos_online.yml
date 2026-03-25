@@ -1,0 +1,10 @@
+uuid: b3a82145-cae8-4ea0-ab91-1db4db0a9ede
+langcode: en
+status: true
+dependencies: {  }
+id: whos_online
+mcp_tool_name: whos_online
+tool_id: 'tool_api:prompt_post_news___whos_online'
+description: null
+authentication_mode: required
+scopes: {  }

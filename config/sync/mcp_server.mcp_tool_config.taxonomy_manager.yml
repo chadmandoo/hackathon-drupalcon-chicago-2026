@@ -1,0 +1,10 @@
+uuid: 38f70623-1e29-4c4c-8cf4-5f7acc538ed6
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_manager
+mcp_tool_name: taxonomy_manager
+tool_id: 'tool_api:prompt_post_news___taxonomy_manager'
+description: null
+authentication_mode: required
+scopes: {  }

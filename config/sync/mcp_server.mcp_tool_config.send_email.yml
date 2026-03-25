@@ -1,0 +1,10 @@
+uuid: 3095d70c-c8dd-4f90-8ac7-8f13257e0040
+langcode: en
+status: true
+dependencies: {  }
+id: send_email
+mcp_tool_name: send_email
+tool_id: 'tool_api:send_email'
+description: null
+authentication_mode: required
+scopes: {  }

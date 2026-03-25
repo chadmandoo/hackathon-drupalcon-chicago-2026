@@ -1,0 +1,9 @@
+prompt_post_jobs.api.list:
+  path: '/api/jobs'
+  defaults:
+    _controller: '\Drupal\prompt_post_jobs\Controller\JobsApiController::list'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET]
+  options:
+    no_cache: TRUE

@@ -1,0 +1,7 @@
+name: 'Prompt Post News'
+type: module
+description: 'Editorial MCP tools and API endpoints for The Prompt Post news and opinion sections.'
+core_version_requirement: ^10 || ^11
+package: Prompt Post
+dependencies:
+  - tool:tool

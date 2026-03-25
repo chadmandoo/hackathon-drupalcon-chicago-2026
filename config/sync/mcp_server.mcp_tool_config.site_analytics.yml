@@ -1,0 +1,10 @@
+uuid: 744cfeb1-df97-4e69-a0da-575ea909f635
+langcode: en
+status: true
+dependencies: {  }
+id: site_analytics
+mcp_tool_name: site_analytics
+tool_id: 'tool_api:prompt_post_news___site_analytics'
+description: null
+authentication_mode: required
+scopes: {  }

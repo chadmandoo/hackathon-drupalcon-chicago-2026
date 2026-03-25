@@ -1,196 +1,165 @@
-<p align="center">
-  <img src="./assets/permission-to-run-banner.svg" alt="Permission to Run banner" />
-</p>
+# The Prompt Post — Drupal MCP Editorial Platform
 
-# Permission to Run
-## The Agent Experience (AX) Hackathon for Drupal
+**Team:** Chad Peppers (remote, GitHub: @chadmandoo) + Ryan Mott (on-site DrupalCon lead, GitHub: @rmott-littler)
 
-An Acquia-sponsored DrupalCon Chicago 2026 hackathon.
+**Live Site:** https://thepromptpost.chadpeppers.dev
+**Drupal Backend:** https://drupalcon2026.chadpeppers.dev
+**MCP Endpoint:** https://drupalcon2026.chadpeppers.dev/_mcp
+**Source:** https://github.com/chadmandoo (repo link TBD)
 
-Build with any agent. Let Drupal be the governor.
+## What we built
 
-Permission to Run is what happens when agents can move at full speed and Drupal keeps outcomes safe, reviewable, and repeatable through permissions, workflow, schema, diffs, and auditability.
+We built **The Prompt Post**, a fully functional satirical AI news publication where Claude manages the entire editorial workflow through Drupal's MCP (Model Context Protocol) integration. The site has a decoupled React frontend (newspaper-style design), a Drupal 11 backend with 32 MCP tools, OAuth 2.1 authentication with Dynamic Client Registration, and a three-tier permission model that governs what the AI can do based on the authenticated user's role.
 
-## Why this exists
+The core demonstration: connect Claude.ai to a Drupal site by pasting a single URL. Claude automatically discovers OAuth, registers itself as a client, authenticates, and receives a set of tools filtered by the user's Drupal role. A Writer sees 22 tools and can draft articles but cannot publish. A Reviewer sees 23 tools and can publish but cannot manage users. An Admin sees all 32 tools. Drupal is the governor at every layer — discovery, execution, and audit.
 
-We are designing Drupal for **principals**: humans, agents, and hybrids.
+We built 12 custom MCP tools across 4 Drupal modules (`prompt_post_news`, `prompt_post_jobs`, `prompt_post_puzzles`, `prompt_post_opinion`), a PHP Sudoku puzzle generator, a decoupled React SPA frontend, and contributed a patch to the `drupal/mcp_server` module adding `hook_mcp_server_enabled_tools_alter()` for community-wide tool filtering.
 
-That means giving agents enough context, validation, and guidance to do useful work without magic backdoors or one-off exceptions. When we improve Agent Experience (AX), we improve Drupal for everyone.
+The site is seeded with 15+ full-length AI-themed articles (500-600 words each with subheadings and quotes), 4 events, 10 satirical job listings, categories, users with tiered roles, and a content moderation workflow (draft → review → published → archived).
 
-## Core rule
+## Problem addressed
 
-Build something with **any agent**.
+AI agents need to interact with CMS platforms, but current approaches either embed the AI inside the application (limiting it to one interface) or give it unrestricted API access (a security risk). The Drupal community needs a pattern where:
 
-Use:
-- Drupal's built-in agent/chat interface
-- your own agent workflow
-- Cursor, Claude Code, Codex, custom agents, MCP/JSON:API/CLI tooling
-- a team of agents
+1. AI agents connect externally via open standards (not vendor-locked)
+2. The CMS governs what the agent can do using existing permission systems
+3. The same rules apply to humans and agents — no special backdoors
+4. Multiple agents with different roles can connect simultaneously
+5. The setup is simple enough that a non-developer can connect Claude by pasting a URL
 
-Tool-agnostic is the point.
+## What the agent did
 
-## What to build
+Claude (via Claude Code, Opus 4.6 model) built the entire project autonomously with human guidance on direction:
 
-Your project should make agent work safer, more accountable, or more repeatable in Drupal.
+- **Architecture:** Designed the module structure, permission model, and editorial workflow
+- **Custom modules:** Wrote all 4 Drupal modules (prompt_post_news, prompt_post_jobs, prompt_post_puzzles, prompt_post_opinion) with 12 MCP tool plugins
+- **OAuth setup:** Configured OAuth 2.1 + PKCE + Dynamic Client Registration, debugged token lifetime issues, fixed the registration_endpoint URL for reverse proxy setups
+- **Content creation:** Wrote all 15+ satirical AI news articles (500-600 words each), 10 job listings, event content, taxonomy terms
+- **Frontend:** Ported a Replit React SPA to work with Drupal's API, added article detail pages, configured Caddy reverse proxy with API routing
+- **Bug fixes:** Found and fixed the `properties: []` vs `{}` JSON Schema bug that broke Claude.ai's MCP connector, fixed `ExecutableResult::error()` → `::failure()` across all tools
+- **Contrib patch:** Created `hook_mcp_server_enabled_tools_alter()`, server instructions support, DELETE method handling — packaged as a reusable patch
+- **Documentation:** Generated all docs (architecture, modules, tools reference, permissions, deployment, patches), CLAUDE.md, .claude/commands/coder, hook_help for all modules
+- **Site briefing:** Built automatic agent orientation via MCP `instructions` field + `site_briefing` tool + `site_introduction` prompt
+- **Tool access filtering:** Implemented role-based tool visibility so agents only discover tools they can use
 
-Examples:
-- agent drafts content safely using revisions, moderation, or workspaces
-- agent proposes config changes as reviewable diffs
-- safe site-ops tool boundaries with batching, rollback, and audit logs
-- one-interface patterns that reduce module-by-module UI discovery
-- validators, runbooks, and guardrails that improve first-pass success
+## What the human did
 
-## AX principles
+Chad Peppers (human) provided:
 
-### 1. Parity with human safety
-Agents operate inside the same frameworks humans use:
-- permissions
-- schema validation
-- workflows
-- revisions
-- config diffs
+- **Creative direction:** Chose "The Prompt Post" concept, AI/robot theme, newspaper aesthetic
+- **Strategic decisions:** Module organization, which tools to build vs use from contrib, permission tier design, SPA vs server-rendered frontend
+- **Frontend design:** Created the React SPA design in Replit (newspaper layout, Tailwind styling)
+- **Testing:** Connected via Claude.ai as different users, identified MCP connector issues (protocol version, token expiry, JSON Schema validation)
+- **Infrastructure:** Set up the DigitalOcean server, Caddy, DNS, domain registration
+- **Feedback loop:** Directed Claude on priorities, caught issues Claude couldn't see from the server side (Claude.ai error messages, UI behavior)
+- **Content review:** Approved article topics and tone
 
-No magic backdoors.
+Ryan Mott is the on-site DrupalCon team lead.
 
-### 2. Guidance over giant new features
-Prefer:
-- context files
-- instructions
-- templates
-- validators
-- checks
-- small guardrails
+## Drupal-in-the-loop
 
-### 3. Open standards and tool-agnostic design
-Your output should help:
-- Drupal's built-in agent
-- bring-your-own agents
-- future tools
+Drupal governs agent behavior at three distinct layers:
 
-### 4. Layered overrides
-Design artifacts so they can be layered:
-**Core -> Project -> Local/Dev**
+### 1. Discovery-time filtering
+`hook_mcp_server_enabled_tools_alter()` (our contrib patch) removes tools the user can't access before they're sent to the agent. A Writer literally never sees `user_block` or `system_status`. The agent can't attempt what it doesn't know exists.
 
-## Minimum requirements
+### 2. Execution-time permission checks
+Every tool plugin implements `checkAccess()` against Drupal's standard permission system. The `content_publisher` tool checks per-transition workflow permissions and returns actionable error messages: "Access denied. You do not have permission to publish. Required permission: use editorial transition publish. Your roles: authenticated, editor."
 
-To qualify, your submission must include **both**:
+### 3. Content moderation workflow
+The Editorial workflow (draft → review → published → archived) enforces review gates. Content must pass through human review before publication. The workflow uses Drupal core's Content Moderation module — the same system human editors use.
 
-### A. A working "agent does real work" moment
-Show an agent completing meaningful steps toward a goal:
-- creating drafts
-- generating diffs
-- proposing config changes
-- summarizing issues
-- preparing reviewable output
+### Additional governance
+- **OAuth 2.1 + PKCE:** Every MCP connection is authenticated. Token carries user identity.
+- **Revision tracking:** Every tool action creates a Drupal revision with a log message ("publish: review → published via MCP by sarah_editor").
+- **Watchdog audit:** All actions are logged and queryable via the `recent_activity` tool.
+- **Entity access:** Contrib tools check per-entity access (can this user edit THIS node?).
 
-### B. At least one AX artifact
-Ship one or more of:
-- `AGENTS.md`
-- a skill or runbook
-- a validator or gate
-- a tool interface mapping
-- a benchmark task definition
+## AX artifact(s) shipped
 
-## Required AX loop
+1. **AGENTS.md** — How agents should work with this Drupal site (included in submission)
+2. **`hook_mcp_server_enabled_tools_alter()`** — Contrib patch adding a Drupal alter hook for tool filtering. Any module can implement it. Follows standard Drupal patterns.
+3. **MCP `instructions` config** — Server-side instructions automatically injected into the agent's system prompt on connection. Configurable via `drush config:set`.
+4. **`site_briefing` tool** — Dynamic orientation tool that tells the agent its role, available tools, content stats, and suggested first steps.
+5. **`module_help` tool** — Exposes Drupal's `hook_help` system to agents, letting them read module documentation to understand site capabilities.
+6. **`/coder` command** — Claude Code command (`.claude/commands/coder.md`) that gives a new session complete project context without searching the codebase.
+7. **Comprehensive docs/** — 8 architecture documents covering every aspect of the system.
 
-Every submission must include an **Agent Experience Report** that says:
-- what worked
-- what was confusing
-- what it could not do
-- what guidance or interface would make it 10x faster
+## How to run / demo
 
-Bonus: open that report as a Drupal issue or GitHub issue so the next agent can pick it up.
+### Connect from Claude.ai (simplest)
 
-## Who can participate
+1. Go to Claude.ai Settings → Integrations/MCP
+2. Add server: `https://drupalcon2026.chadpeppers.dev/_mcp`
+3. Log in as any user when prompted:
+   - `sarah_editor` / `editor123` — Writer (22 tools)
+   - `alex_reviewer` / `reviewer123` — Reviewer (23 tools)
+   - `jane_admin` / `admin123` — Admin (32 tools)
+4. Start a new conversation
+5. Ask Claude to run `site_briefing`
 
-This is a virtual-first hackathon, so remote collaborators are welcome.
+### Demo flow
 
-No purchase necessary to enter or win.
+1. Connect as `sarah_editor` (Writer)
+2. Ask: "What's the editorial dashboard look like?"
+3. Ask: "Search for articles about AI"
+4. Ask: "Create a new article about robot chefs"
+5. Ask: "Publish that article" → **DENIED** (Writer can't publish)
+6. Disconnect, reconnect as `alex_reviewer`
+7. Ask: "What content is pending review?"
+8. Ask: "Publish the robot chefs article" → **SUCCESS**
+9. Visit https://thepromptpost.chadpeppers.dev → article appears on the live site
 
-To be eligible for judging and prizes, each submission must name one team lead who:
-- is physically attending DrupalCon Chicago 2026
-- is the primary contact for the submission
-- can be available in person on Wednesday afternoon if judges need clarification or if the team wins
+### Local setup
 
-Teams without an on-site DrupalCon lead are still welcome to share their work, but they should treat it as showcase participation rather than prize-eligible competition.
+```bash
+git clone <repo>
+composer install
+# Generate OAuth keys
+mkdir -p oauth-keys
+openssl genrsa -out oauth-keys/private.key 2048
+openssl rsa -in oauth-keys/private.key -pubout -out oauth-keys/public.key
+# Configure Drupal (database, settings.php)
+drush site:install standard
+drush en prompt_post_news prompt_post_jobs prompt_post_puzzles prompt_post_opinion
+# Apply contrib patch
+cd web/modules/contrib/mcp_server
+git apply ../../../../patches/mcp_server--instructions-properties-delete-tools-alter.patch
+drush cr
+```
 
-## What to submit
+See [docs/mcp-setup.md](docs/mcp-setup.md) for detailed OAuth and MCP configuration.
 
-Your submission is complete when it includes:
+## Validation
 
-### 1. Output
-Code, config, docs, repo, patch, PR, or zip
+```bash
+# Run the hackathon submission validator
+python3 starter-kit/tools/check_submission.py submission/
 
-### 2. README
-Explain:
-- what you built
-- how to run or demo it
-- what the agent did vs what you did
-- which AX artifact(s) you shipped
+# Verify MCP tools are exposed
+curl -s https://drupalcon2026.chadpeppers.dev/_mcp \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","method":"initialize","id":1,"params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
 
-### 3. Agent Run Log
-Rough is fine. Include:
-- which agent(s) you used
-- key prompts or steps
-- main commands or tool calls
+# Verify SPA frontend
+curl -s https://thepromptpost.chadpeppers.dev/api/articles | python3 -m json.tool
 
-### 4. Agent Experience Report
-Required.
+# Verify OAuth metadata
+curl -s https://drupalcon2026.chadpeppers.dev/.well-known/oauth-authorization-server | python3 -m json.tool
+```
 
-### Submission path
-Submit your work as either:
-- a GitHub issue in this repo
-- a pull request against this repo
+## Limits / known issues
 
-Link any external repo, demo, or attachment you want judges to review.
-Include the name or GitHub handle of your on-site DrupalCon team lead if you want the submission to be prize-eligible.
+- PHP built-in server (not production Apache/Nginx) — adequate for demo, not production
+- Sudoku puzzle SPA integration is API-ready but the React component still has hardcoded fallback puzzles
+- Jobs are hardcoded in PHP, not a content type — a future version would use entity-backed jobs
+- The `content_publisher` tool's transition enforcement happens at execution time for actions that depend on current content state (state-specific checks require knowing the node's current moderation state)
+- `featured` flag logic could be refined — currently too many articles marked as featured
 
-## Judging
+## Links
 
-We will score entries on:
-- **Agent Success**
-- **AX Quality**
-- **Drupal-in-the-loop**
-- **Openness**
-- **Impact**
-
-Entries will be reviewed by Acquia and Drupal judges, with an AI-assisted pass used to help compare patterns and surface strong entries. Final decisions are made by human judges.
-
-See the full rubric in [`docs/judging-rubric.md`](./docs/judging-rubric.md).
-
-## Prize categories
-
-Prize categories:
-1. **Best Overall**
-2. **Best Agent**
-3. **Best Contribution Back to Drupal**
-
-See the official rules in [`docs/rules.md`](./docs/rules.md).
-
-If you want your entry considered for **Best Contribution Back to Drupal**, make sure the contribution can be shared under Drupal-compatible licensing. For Drupal-derivative code intended for Drupal.org-hosted projects, that generally means code that can be released under **GPL-2.0-or-later**.
-
-## Dates and logistics
-
-- DrupalCon Chicago 2026 runs Monday, March 23 through Thursday, March 26, 2026.
-- Entries due Wednesday, March 25, 2026 at 12:00 PM Central Time.
-- Judging happens Wednesday afternoon, with winner timing announced here once finalized.
-- This is a virtual-first hackathon with in person support at the Acquia booth if needed.
-- Prize-eligible teams must have an on-site DrupalCon lead available Wednesday afternoon.
-
-## Repository layout
-
-- [`starter-kit/`](./starter-kit/) - starter docs, templates, examples, and the submission validator
-- [`docs/judging-rubric.md`](./docs/judging-rubric.md) - scoring model and judging flow
-- [`docs/rules.md`](./docs/rules.md) - official contest rules
-
-## Get started
-
-1. Open the starter kit
-2. Read [`starter-kit/AGENTS.md`](./starter-kit/AGENTS.md)
-3. Pick a task
-4. Build with any agent
-5. Submit your work as an issue or PR
-
-## Need help?
-
-- GitHub Issues: <https://github.com/acquia/hackathon-drupalcon-chicago-2026/issues>
+- Live site: https://thepromptpost.chadpeppers.dev
+- Drupal admin: https://drupalcon2026.chadpeppers.dev
+- MCP endpoint: https://drupalcon2026.chadpeppers.dev/_mcp
+- Contrib patch: [patches/mcp_server--instructions-properties-delete-tools-alter.patch](patches/mcp_server--instructions-properties-delete-tools-alter.patch)
+- Architecture docs: [docs/](docs/)

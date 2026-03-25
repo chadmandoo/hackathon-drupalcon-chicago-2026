@@ -1,0 +1,10 @@
+uuid: 27e31106-4572-4a7b-b624-1d8db5afc7b1
+langcode: en
+status: true
+dependencies: {  }
+id: entity_load_by_property
+mcp_tool_name: entity_load_by_property
+tool_id: 'tool_api:entity_load_by_property'
+description: null
+authentication_mode: required
+scopes: {  }

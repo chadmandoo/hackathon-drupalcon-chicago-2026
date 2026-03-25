@@ -1,0 +1,10 @@
+uuid: 93a79152-16b9-481b-a897-eeeeed32598f
+langcode: en
+status: true
+dependencies: {  }
+id: site_briefing
+mcp_tool_name: site_briefing
+tool_id: 'tool_api:prompt_post_news___site_briefing'
+description: null
+authentication_mode: required
+scopes: {  }

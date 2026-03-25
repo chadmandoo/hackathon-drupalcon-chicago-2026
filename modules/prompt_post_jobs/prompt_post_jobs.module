@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Prompt Post Jobs module.
+ *
+ * Provides the Classifieds / Jobs section API for The Prompt Post.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function prompt_post_jobs_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.prompt_post_jobs':
+      $output = '<h2>Prompt Post Jobs</h2>';
+      $output .= '<p>Provides the "Classifieds" section for <strong>The Prompt Post</strong>, serving satirical AI-industry job listings to the decoupled SPA frontend.</p>';
+
+      $output .= '<h3>API Endpoint</h3>';
+      $output .= '<dl>';
+      $output .= '<dt><code>GET /api/jobs</code></dt>';
+      $output .= '<dd>Returns an array of job listings as JSON. Each job includes: id, title, company, location, description, tags, postedDate, and remote (boolean).</dd>';
+      $output .= '</dl>';
+
+      $output .= '<h3>Current Listings</h3>';
+      $output .= '<p>The module ships with 10 satirical job listings that parody real AI-industry roles:</p>';
+      $output .= '<ol>';
+      $output .= '<li><strong>Senior Prompt Engineer</strong> — Anthropic Synergies</li>';
+      $output .= '<li><strong>AI Ethics Coordinator</strong> — Global Tech Initiative</li>';
+      $output .= '<li><strong>Data Quality Curator</strong> — DataMinds Corp</li>';
+      $output .= '<li><strong>Robot Janitor Supervisor</strong> — CleanBot Industries</li>';
+      $output .= '<li><strong>Vending Machine Therapist</strong> — SmartVend AI</li>';
+      $output .= '<li><strong>Hallucination Fact-Checker</strong> — TruthScale AI</li>';
+      $output .= '<li><strong>Human-in-the-Loop (Literally)</strong> — MechaFit Gym</li>';
+      $output .= '<li><strong>Chief Apology Officer</strong> — AutoReply Corp</li>';
+      $output .= '<li><strong>Autonomous Vehicle Crossing Guard</strong> — SafeStreet Robotics</li>';
+      $output .= '<li><strong>AI Model Retirement Counselor</strong> — Legacy Systems Inc.</li>';
+      $output .= '</ol>';
+
+      $output .= '<h3>Future Enhancements</h3>';
+      $output .= '<p>Job listings are currently hardcoded. A future version could use a Job Listing content type with MCP tools for AI-assisted job posting and management.</p>';
+
+      return $output;
+  }
+}

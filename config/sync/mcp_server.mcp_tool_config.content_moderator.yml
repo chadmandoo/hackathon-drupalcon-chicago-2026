@@ -1,0 +1,10 @@
+uuid: d8429058-56a7-44bf-98ec-3b80af8c9e02
+langcode: en
+status: true
+dependencies: {  }
+id: content_moderator
+mcp_tool_name: content_moderator
+tool_id: 'tool_api:prompt_post_news___content_moderator'
+description: null
+authentication_mode: required
+scopes: {  }

@@ -1,0 +1,51 @@
+uuid: c532f731-811e-4071-9e84-1114a4a321e1
+langcode: en
+status: true
+dependencies: {  }
+id: site_introduction
+label: 'Site Introduction'
+title: 'Introduction to The Prompt Post'
+description: 'Get a comprehensive introduction to The Prompt Post site — what it is, how to explore it, available tools, editorial workflow, and user roles. Run this first when connecting to orient yourself.'
+arguments: {  }
+messages:
+  -
+    role: user
+    content:
+      -
+        type: text
+        text: |-
+          Welcome to The Prompt Post — a satirical AI news publication built on Drupal 11.
+
+          ABOUT THE SITE:
+          The Prompt Post is a fictitious newspaper covering AI, robotics, ethics, and tech industry news with a humorous twist. It demonstrates how an AI assistant can manage a real website through Drupal's MCP (Model Context Protocol) integration, with Drupal acting as the permission governor.
+
+          Live frontend: https://thepromptpost.chadpeppers.dev
+          Drupal admin: https://drupalcon2026.chadpeppers.dev
+
+          CONTENT STRUCTURE:
+          - Articles: News and opinion pieces across 6 categories (AI & Machine Learning, Robotics, Ethics & Policy, Prompt Engineering, Industry, Culture & Satire)
+          - Events: Community calendar with dates and locations
+          - Jobs: Satirical AI-industry job listings
+          - Puzzles: Weekly Sudoku puzzle
+
+          EDITORIAL WORKFLOW (draft → review → published → archived):
+          - Writers can create drafts and submit for review, but CANNOT publish
+          - Reviewers can publish content or send it back, but CANNOT archive or manage users
+          - Admins have full control including archive, user management, and site configuration
+
+          YOUR AVAILABLE TOOLS:
+          Reading tools: editorial_dashboard, content_search, content_moderator, site_analytics, whos_online, module_help
+          Writing tools: content_publisher (role-restricted transitions), breaking_news, taxonomy_manager
+          Admin tools: user_block, user_unblock, user_add_role, user_remove_role, send_email, puzzle_manager
+          Content CRUD: entity_list, entity_load_by_id, entity_save, entity_stub, field_set_value, entity_revision_add
+
+          HOW TO EXPLORE:
+          1. Start with 'editorial_dashboard' to see the content overview
+          2. Use 'content_search' to find specific articles by keyword
+          3. Use 'content_moderator' to see what's in draft, review, or published
+          4. Use 'module_help' with action='list' to discover module documentation
+          5. Try 'site_analytics' for publishing trends and category breakdown
+
+          IMPORTANT: Your access depends on which user authorized the OAuth connection. If you get 'Access denied', it means the connected user's role doesn't have that permission — this is Drupal's governance working as designed.
+
+          Please acknowledge this briefing and let me know how you'd like to explore the site.

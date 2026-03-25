@@ -1,0 +1,10 @@
+uuid: dc8429e4-9eeb-4b09-bcc1-cb21c9692579
+langcode: en
+status: true
+dependencies: {  }
+id: entity_field_values
+mcp_tool_name: entity_field_values
+tool_id: 'tool_api:entity_field_values'
+description: null
+authentication_mode: required
+scopes: {  }

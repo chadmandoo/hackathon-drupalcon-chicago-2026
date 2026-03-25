@@ -1,0 +1,14 @@
+prompt_post_puzzles.settings:
+  type: config_object
+  label: 'Prompt Post Puzzles settings'
+  mapping:
+    current_puzzle_index:
+      type: integer
+      label: 'Current puzzle index'
+    difficulty:
+      type: string
+      label: 'Puzzle difficulty (easy, medium, hard)'
+    custom_puzzle:
+      type: string
+      label: 'Custom puzzle JSON data'
+      nullable: true

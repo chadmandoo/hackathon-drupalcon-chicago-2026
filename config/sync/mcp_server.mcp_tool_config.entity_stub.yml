@@ -1,0 +1,10 @@
+uuid: 163ead09-9e36-48a4-bfcf-3277adae8dc8
+langcode: en
+status: true
+dependencies: {  }
+id: entity_stub
+mcp_tool_name: entity_stub
+tool_id: 'tool_api:entity_stub'
+description: null
+authentication_mode: required
+scopes: {  }

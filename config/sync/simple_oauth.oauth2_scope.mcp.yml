@@ -1,0 +1,16 @@
+id: mcp
+name: mcp
+description: 'Access MCP tools'
+grant_types:
+  authorization_code:
+    status: true
+    description: 'MCP access via auth code'
+  client_credentials:
+    status: true
+    description: 'MCP access via client creds'
+umbrella: false
+parent: ''
+granularity_id: permission
+granularity_configuration:
+  permission: 'access content'
+label: 'MCP Access'

@@ -1,0 +1,10 @@
+uuid: c3f3cc6e-dd95-44d8-b887-fc0a0fe36c7b
+langcode: en
+status: true
+dependencies: {  }
+id: recent_activity
+mcp_tool_name: recent_activity
+tool_id: 'tool_api:prompt_post_news___recent_activity'
+description: null
+authentication_mode: required
+scopes: {  }

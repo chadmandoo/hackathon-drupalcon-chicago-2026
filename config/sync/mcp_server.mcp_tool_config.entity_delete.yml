@@ -1,0 +1,10 @@
+uuid: 781fa5b4-3124-457a-b0a3-6953ecd2f548
+langcode: en
+status: true
+dependencies: {  }
+id: entity_delete
+mcp_tool_name: entity_delete
+tool_id: 'tool_api:entity_delete'
+description: null
+authentication_mode: required
+scopes: {  }

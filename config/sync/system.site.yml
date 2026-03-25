@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
+langcode: en
+uuid: 1d84367a-ddea-4fcb-9ca3-65b94d725bb8
+name: 'The Prompt Post'
+mail: admin@example.com
+slogan: 'News for the silicon age'
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: null

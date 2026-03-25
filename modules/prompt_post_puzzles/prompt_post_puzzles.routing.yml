@@ -1,0 +1,9 @@
+prompt_post_puzzles.api.current:
+  path: '/api/puzzles/current'
+  defaults:
+    _controller: '\Drupal\prompt_post_puzzles\Controller\PuzzleApiController::current'
+  requirements:
+    _access: 'TRUE'
+  methods: [GET]
+  options:
+    no_cache: TRUE

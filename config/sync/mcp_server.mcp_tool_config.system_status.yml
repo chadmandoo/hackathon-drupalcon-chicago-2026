@@ -1,0 +1,10 @@
+uuid: 0a263ef9-8277-4b75-adb2-cd3354d0c63b
+langcode: en
+status: true
+dependencies: {  }
+id: system_status
+mcp_tool_name: system_status
+tool_id: 'tool_api:system_status'
+description: null
+authentication_mode: required
+scopes: {  }

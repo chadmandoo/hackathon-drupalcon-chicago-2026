@@ -1,0 +1,21 @@
+uuid: b4d2480e-7b41-48b9-ab05-c9b8e58af43f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_breaking_news
+    - node.type.article
+id: node.article.field_breaking_news
+field_name: field_breaking_news
+entity_type: node
+bundle: article
+label: 'Breaking News'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Breaking
+  off_label: Normal
+field_type: boolean

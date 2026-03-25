@@ -1,0 +1,5 @@
+name: 'Prompt Post Jobs'
+type: module
+description: 'Job listings API and management for The Prompt Post.'
+core_version_requirement: ^10 || ^11
+package: Prompt Post

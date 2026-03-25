@@ -1,0 +1,10 @@
+uuid: e46fda07-6ba7-4d65-a71d-c26fbede2bb2
+langcode: en
+status: true
+dependencies: {  }
+id: editorial_dashboard
+mcp_tool_name: editorial_dashboard
+tool_id: 'tool_api:prompt_post_news___editorial_dashboard'
+description: null
+authentication_mode: required
+scopes: {  }

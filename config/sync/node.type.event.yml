@@ -1,0 +1,11 @@
+uuid: da36c03c-be99-4fee-adfb-c07be1e0708a
+langcode: en
+status: true
+dependencies: {  }
+name: Event
+type: event
+description: 'Community events for the Greenville Gazette calendar.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true
