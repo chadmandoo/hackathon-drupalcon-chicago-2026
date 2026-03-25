@@ -1,0 +1,38 @@
+uuid: c64a0974-4c63-4bbe-84f5-e5f4e7c4cb25
+langcode: en
+status: true
+dependencies: {  }
+id: write_article
+label: 'Write Article'
+title: 'Write a new article for The Prompt Post'
+description: 'Collaboratively draft a new article. Claude helps with research, writing, and iteration — then publishes to Drupal when ready.'
+arguments:
+  -
+    label: Topic
+    machine_name: topic
+    description: 'What should the article be about?'
+    required: true
+  -
+    label: Category
+    machine_name: category
+    description: 'Category: AI & Machine Learning, Robotics, Ethics & Policy, Prompt Engineering, Industry, or Culture & Satire'
+    required: false
+messages:
+  -
+    role: user
+    content:
+      -
+        type: text
+        text: |-
+          I want to write a new article for The Prompt Post about: {{topic}}
+
+          Category: {{category}}
+
+          Please help me with this workflow:
+          1. First, suggest a compelling headline and teaser (2-3 options)
+          2. Once I pick one, draft the full article (500-700 words, with subheadings)
+          3. Let me review and iterate — I may want to adjust tone, add quotes, or restructure
+          4. When I approve it, create it in Drupal as a draft using entity_stub, field_set_value, and entity_save
+          5. Then submit it for review using content_publisher
+
+          Do NOT publish directly — follow the editorial workflow. Lets start with headline options.

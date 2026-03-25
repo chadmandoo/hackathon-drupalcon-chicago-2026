@@ -1,0 +1,25 @@
+uuid: 9c74bd2d-479d-47b2-9b0e-15774c69e2b1
+langcode: en
+status: true
+dependencies: {  }
+id: daily_briefing
+label: 'Daily Briefing'
+title: 'Morning editorial briefing'
+description: 'Get a complete overview of the site: what was published, what is pending, who is active, and what needs attention.'
+arguments: {  }
+messages:
+  -
+    role: user
+    content:
+      -
+        type: text
+        text: |-
+          Good morning. Give me the daily editorial briefing:
+
+          1. Run editorial_dashboard for the content overview
+          2. Run content_moderator with state=review — what needs my attention?
+          3. Run site_analytics — any trends in publishing or categories that are underserved?
+          4. Run whos_online — who is active on the team?
+          5. Summarize everything in a quick brief: what was published recently, what needs review, any gaps in coverage, and what I should focus on today.
+
+          Keep it concise — like a morning standup.

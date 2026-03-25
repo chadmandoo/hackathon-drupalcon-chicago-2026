@@ -1,0 +1,24 @@
+uuid: e045c6c9-3296-4c62-ab94-26c6cce6457a
+langcode: en
+status: true
+dependencies: {  }
+id: editorial_review
+label: 'Editorial Review'
+title: 'Review pending content'
+description: 'Review content waiting for editorial approval. Summarize each piece and help decide what to publish, send back, or hold.'
+arguments: {  }
+messages:
+  -
+    role: user
+    content:
+      -
+        type: text
+        text: |-
+          I need to do an editorial review session. Please:
+
+          1. Run content_moderator with state=review to show me everything pending review
+          2. For each piece, give me a brief summary (2-3 sentences) and your recommendation: publish, send back for revision, or hold
+          3. Also check content_moderator with state=draft — flag anything that has been sitting in draft too long
+          4. After I make my decisions, execute the transitions using content_publisher
+
+          Lets start with what is in review.
