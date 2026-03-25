@@ -20,8 +20,8 @@ If you only have 5 minutes, here's the path:
 
 | Step | What | Link |
 |------|------|------|
-| 1 | **Watch the demo video** (shows the full editorial workflow) | [link TBD] |
-| 2 | **Open the presentation** (9 slides covering vision, tools, governance) | [presentation.html](presentation.html) |
+| 1 | **Read the presentation** (9 slides — the vision, tools, governance) | [presentation.html](presentation.html) |
+| 2 | **Watch the demo video** (see everything in action) | [link TBD] |
 | 3 | **Browse the live site** (the newspaper Claude manages) | [thepromptpost.chadpeppers.dev](https://thepromptpost.chadpeppers.dev) |
 
 ### Submission checklist
@@ -228,7 +228,15 @@ Then connect from Claude.ai using `https://your-domain.com/_mcp`.
 
 See [docs/mcp-setup.md](docs/mcp-setup.md) for detailed configuration including reverse proxy setup and troubleshooting.
 
-See [docs/mcp-setup.md](docs/mcp-setup.md) for detailed OAuth and MCP configuration.
+### Optional: Local editor workspace
+
+The MCP connection is all that's required. But the real power emerges when editors work from a **local workspace** — a project folder that becomes their Claude Cowork environment.
+
+The idea: an editor's daily workspace is no longer the Drupal admin UI. It's a local folder with their research, notes, drafts, and brand guidelines. Claude has context from both the local files AND the Drupal site via MCP. The website is where content gets published; the local workspace is where content gets created.
+
+This is optional but recommended. A separate repo with the local workspace template is available at: **[link TBD]**
+
+The MCP connection is the foundation. The local workspace is where it becomes transformative.
 
 ## Validation
 
