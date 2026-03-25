@@ -10,7 +10,38 @@
 **MCP Endpoint:** https://drupalcon2026.chadpeppers.dev/_mcp
 **Source:** https://github.com/chadmandoo/hackathon-drupalcon-chicago-2026
 **Demo Video:** [link TBD]
-**Presentation:** [presentation.md](presentation.md)
+**Presentation:** [presentation.html](presentation.html) (open in browser) · [presentation.md](presentation.md) (markdown)
+
+---
+
+## For Judges: Quick Walkthrough
+
+If you only have 5 minutes, here's the path:
+
+| Step | What | Link |
+|------|------|------|
+| 1 | **Watch the demo video** (shows the full editorial workflow) | [link TBD] |
+| 2 | **Open the presentation** (9 slides covering vision, tools, governance) | [presentation.html](presentation.html) |
+| 3 | **Browse the live site** (the newspaper Claude manages) | [thepromptpost.chadpeppers.dev](https://thepromptpost.chadpeppers.dev) |
+
+### Submission checklist
+
+| Requirement | Status | Location |
+|-------------|--------|----------|
+| Real "agent does work" moment | Done | Demo video + live site |
+| AX artifact (AGENTS.md) | Done | [AGENTS.md](AGENTS.md) |
+| README with required sections | Done | This file |
+| Agent Run Log | Done | [agent-run-log.md](agent-run-log.md) |
+| Agent Experience Report | Done | [agent-experience-report.md](agent-experience-report.md) |
+| On-site team lead | Done | Ryan Mott (@rmott-littler) |
+
+### What to explore if you have more time
+
+- **Custom modules** (12 MCP tools): [modules/](modules/)
+- **Contrib patch** (hook_mcp_server_enabled_tools_alter): [patches/](patches/)
+- **Architecture docs** (8 documents): [docs/](docs/)
+- **Full config export**: [config/sync/](config/sync/)
+- **Claude Code setup** (coder command): [.claude/commands/coder.md](.claude/commands/coder.md)
 
 ---
 

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Prompt Post — Presentation</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #1a1a1a; color: #f5f5f0; }
+  .slide { min-height: 100vh; padding: 60px 80px; display: flex; flex-direction: column; justify-content: center; border-bottom: 1px solid #333; max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 3.5em; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 10px; color: #fff; }
+  h2 { font-size: 2.2em; font-weight: 800; margin-bottom: 30px; color: #fff; letter-spacing: -0.02em; }
+  h3 { font-size: 1.4em; font-weight: 700; margin: 25px 0 12px; color: #e0e0d8; }
+  p { font-size: 1.15em; line-height: 1.7; margin-bottom: 16px; color: #ccc; }
+  .subtitle { font-style: italic; font-size: 1.3em; color: #999; margin-bottom: 40px; }
+  .highlight { color: #f5f5f0; font-weight: 700; }
+  ul, ol { margin: 12px 0 20px 30px; }
+  li { font-size: 1.1em; line-height: 1.8; color: #ccc; margin-bottom: 6px; }
+  li strong { color: #f5f5f0; }
+  .stat { font-size: 3em; font-weight: 900; color: #fff; display: inline-block; margin-right: 40px; }
+  .stat span { font-size: 0.4em; display: block; color: #999; font-weight: 400; }
+  .stats-row { margin: 40px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+  th { text-align: left; padding: 12px 16px; border-bottom: 2px solid #555; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.1em; color: #999; }
+  td { padding: 12px 16px; border-bottom: 1px solid #333; color: #ccc; font-size: 1em; }
+  .tag { display: inline-block; background: #333; color: #ccc; padding: 4px 12px; border-radius: 3px; font-size: 0.85em; margin: 3px 4px 3px 0; font-family: 'SF Mono', Menlo, monospace; }
+  code { font-family: 'SF Mono', Menlo, monospace; background: #2a2a2a; padding: 2px 8px; border-radius: 3px; font-size: 0.9em; color: #e0e0d8; }
+  .slide-num { font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.15em; color: #666; margin-bottom: 20px; }
+  .divider { width: 80px; height: 3px; background: #555; margin: 30px 0; }
+  .quote { border-left: 3px solid #555; padding-left: 24px; font-style: italic; color: #aaa; margin: 24px 0; font-size: 1.15em; line-height: 1.7; }
+  .links { margin-top: 30px; }
+  .links a { color: #aaa; text-decoration: none; font-size: 0.95em; display: block; margin: 6px 0; }
+  .links a:hover { color: #fff; }
+  .cover-title { font-size: 5em; font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; }
+  @media (max-width: 768px) {
+    .slide { padding: 40px 24px; }
+    h1, .cover-title { font-size: 2.5em; }
+    h2 { font-size: 1.6em; }
+    .stat { font-size: 2em; margin-right: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="slide">
+  <p class="slide-num">Acquia "Permission to Run" AX Hackathon — DrupalCon Chicago 2026</p>
+  <h1 class="cover-title">The Prompt Post</h1>
+  <p class="subtitle">"All the Context That's Fit to Generate"</p>
+  <div class="divider"></div>
+  <p>A Drupal 11 newspaper managed entirely by Claude via MCP.<br>Desktop AI meets CMS governance.</p>
+  <div class="stats-row">
+    <div class="stat">32 <span>MCP Tools</span></div>
+    <div class="stat">3 <span>Permission Tiers</span></div>
+    <div class="stat">12 <span>Custom Tools</span></div>
+    <div class="stat">4 <span>Drupal Modules</span></div>
+  </div>
+  <div class="links">
+    <a href="https://thepromptpost.chadpeppers.dev">thepromptpost.chadpeppers.dev — Live Site</a>
+    <a href="https://drupalcon2026.chadpeppers.dev/_mcp">drupalcon2026.chadpeppers.dev/_mcp — MCP Endpoint</a>
+    <a href="https://github.com/chadmandoo/hackathon-drupalcon-chicago-2026">GitHub Repository</a>
+  </div>
+</div>
+
+<!-- SLIDE 1: THE VISION -->
+<div class="slide">
+  <p class="slide-num">01 — The Vision</p>
+  <h2>Drupal + Desktop AI = The Editor's New Best Friend</h2>
+  <p>What if your editorial team could manage a Drupal site from their desktop AI assistant — the same way developers use Cursor for code?</p>
+  <div class="divider"></div>
+  <p><span class="highlight">The idea:</span> Connect Claude Desktop (or any MCP-capable AI) to your Drupal site. The AI becomes the editorial interface. Drupal stays the governor.</p>
+  <p>Editors work in their own environment — local files, research, notes, brand guidelines — and the AI bridges the gap to the CMS. No need to build complex editorial UIs on the web. The AI wraps the experience.</p>
+  <h3>Why this is better than embedded AI</h3>
+  <table>
+    <tr><th>Embedded AI (in Drupal)</th><th>Desktop AI (via MCP)</th></tr>
+    <tr><td>Limited to what the web UI shows</td><td>Full access to local files, docs, research</td></tr>
+    <tr><td>One interface for everyone</td><td>Each editor's AI adapts to their workflow</td></tr>
+    <tr><td>Context is only what's on screen</td><td>Context is everything: local + remote</td></tr>
+    <tr><td>Building UI is expensive</td><td>AI IS the UI — no frontend dev needed</td></tr>
+    <tr><td>Locked to one AI vendor</td><td>Any MCP-capable AI works</td></tr>
+  </table>
+</div>
+
+<!-- SLIDE 2: WHAT WE BUILT -->
+<div class="slide">
+  <p class="slide-num">02 — What We Built</p>
+  <h2>The Prompt Post — A Living Demo</h2>
+  <p>A satirical AI news publication running on Drupal 11:</p>
+  <ul>
+    <li><strong>32 MCP tools</strong> — 12 custom editorial tools + 20 from contrib</li>
+    <li><strong>3-tier permission model</strong> — Writer (22 tools) → Reviewer (23) → Admin (32)</li>
+    <li><strong>Editorial workflow</strong> — draft → review → published → archived</li>
+    <li><strong>Decoupled React SPA</strong> — newspaper-style frontend</li>
+    <li><strong>OAuth 2.1 + PKCE + Dynamic Client Registration</strong> — paste a URL, log in, done</li>
+    <li><strong>15+ satirical articles</strong>, 10 job listings, Sudoku puzzle generator</li>
+  </ul>
+  <div class="divider"></div>
+  <p><span class="highlight">The demo:</span> Claude creates articles, submits for review, publishes (if authorized), flags breaking news, generates puzzles. A Writer literally cannot publish. Drupal enforces it. Changes appear on the live site instantly.</p>
+</div>
+
+<!-- SLIDE 3: GOVERNANCE -->
+<div class="slide">
+  <p class="slide-num">03 — Drupal as Governor</p>
+  <h2>Three Layers of Governance</h2>
+
+  <h3>Layer 1: Discovery-time filtering</h3>
+  <p>Our <code>hook_mcp_server_enabled_tools_alter()</code> removes tools the user can't access <em>before</em> the agent sees them. A Writer never knows <code>user_block</code> exists.</p>
+
+  <h3>Layer 2: Execution-time permission checks</h3>
+  <p>Every tool checks Drupal permissions. The <code>content_publisher</code> returns: <em>"Access denied. Required permission: use editorial transition publish. Your roles: editor."</em></p>
+
+  <h3>Layer 3: Content moderation workflow</h3>
+  <p>draft → review → published → archived. Content must pass through review. Same workflow for humans and AI.</p>
+
+  <table>
+    <tr><th>Action</th><th>Writer</th><th>Reviewer</th><th>Admin</th></tr>
+    <tr><td>Create drafts</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>Submit for review</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    <tr><td>Publish</td><td>✗</td><td>✓</td><td>✓</td></tr>
+    <tr><td>Send back</td><td>✗</td><td>✓</td><td>✓</td></tr>
+    <tr><td>Archive</td><td>✗</td><td>✗</td><td>✓</td></tr>
+    <tr><td>Manage users</td><td>✗</td><td>✗</td><td>✓</td></tr>
+  </table>
+</div>
+
+<!-- SLIDE 4: DEVELOPER TOOLS -->
+<div class="slide">
+  <p class="slide-num">04 — Not Just for Editors</p>
+  <h2>Developer & Sysadmin Tools</h2>
+  <p>The same MCP connection serves every role:</p>
+
+  <h3>Developer tools</h3>
+  <p>
+    <span class="tag">module_help</span>
+    <span class="tag">site_briefing</span>
+    <span class="tag">entity_type_list</span>
+    <span class="tag">entity_field_value_definitions</span>
+  </p>
+  <p>Read module documentation, explore content structure, understand field schemas — all from Claude Code or CLI.</p>
+
+  <h3>Sysadmin tools</h3>
+  <p>
+    <span class="tag">system_status</span>
+    <span class="tag">recent_activity</span>
+    <span class="tag">whos_online</span>
+    <span class="tag">user_block</span>
+    <span class="tag">user_add_role</span>
+  </p>
+  <p>Check site health, monitor logs, manage users. No SSH required. No admin UI login. Just ask.</p>
+
+  <h3>Editorial tools</h3>
+  <p>
+    <span class="tag">editorial_dashboard</span>
+    <span class="tag">content_search</span>
+    <span class="tag">content_publisher</span>
+    <span class="tag">breaking_news</span>
+    <span class="tag">site_analytics</span>
+    <span class="tag">taxonomy_manager</span>
+    <span class="tag">puzzle_manager</span>
+  </p>
+</div>
+
+<!-- SLIDE 5: VISUAL PLANNING -->
+<div class="slide">
+  <p class="slide-num">05 — Visual Content Planning</p>
+  <h2>See It Before You Ship It</h2>
+  <p>With the decoupled SPA, editors use Claude to:</p>
+  <ol>
+    <li><strong>Draft content locally</strong> — Claude writes the article in conversation</li>
+    <li><strong>Preview visually</strong> — Claude can generate static HTML previews</li>
+    <li><strong>Iterate with feedback</strong> — "Shorter headline, add a pull quote, change category"</li>
+    <li><strong>Publish when ready</strong> — One command sends it to Drupal via MCP</li>
+  </ol>
+  <div class="divider"></div>
+  <p>Content never touches Drupal until the editor is satisfied. No draft pollution. No incomplete nodes. The AI handles the messy creative process; Drupal gets the clean result.</p>
+</div>
+
+<!-- SLIDE 6: POSSIBILITIES -->
+<div class="slide">
+  <p class="slide-num">06 — The Possibilities</p>
+  <h2>Desktop AI + Drupal MCP = Unlimited Potential</h2>
+  <ul>
+    <li><strong>Charts and analytics</strong> — "Graph articles per category this month" → Claude calls <code>site_analytics</code>, renders locally</li>
+    <li><strong>Content calendars</strong> — "Plan next week's content" → cross-references local research with Drupal data</li>
+    <li><strong>Multi-site management</strong> — Connect to multiple Drupal sites, manage from one conversation</li>
+    <li><strong>Documentation</strong> — "Document all content types" → <code>module_help</code> + <code>entity_bundle_field_definitions</code></li>
+    <li><strong>Audit and compliance</strong> — "All content changes in 24 hours" → full audit trail via <code>recent_activity</code></li>
+  </ul>
+  <div class="divider"></div>
+  <p class="quote">The key insight: editors, developers, and managers get AI-powered context from Drupal data without moving files to the server, configuring vector databases, or building custom integrations. The MCP connection IS the integration.</p>
+</div>
+
+<!-- SLIDE 7: CHALLENGES -->
+<div class="slide">
+  <p class="slide-num">07 — Challenges & Lessons</p>
+  <h2>What We Ran Into</h2>
+
+  <h3>MCP Server Module — Works, but setup is hard</h3>
+  <p>Requires understanding OAuth 2.1, PKCE, and Dynamic Client Registration simultaneously. We patched the module for tool filtering, server instructions, and a JSON Schema bug. Developer-first today — needs a setup wizard.</p>
+
+  <h3>Claude Desktop OAuth — Caching friction</h3>
+  <p>Switching users requires full disconnect/reconnect. Tool list persists after permission changes. UX friction, not deal-breakers.</p>
+
+  <h3>MCP client support — Growing but uneven</h3>
+  <p>Claude: full support, works great. ChatGPT: web yes, desktop no. The spec is open — adoption will follow.</p>
+
+  <h3>Per-tool authorization</h3>
+  <p>Users must grant access to each tool on first connect. This is a <em>feature</em>: explicit human consent on top of Drupal's permissions.</p>
+
+  <h3>What AI didn't do well</h3>
+  <p>Honestly — not much. The bottleneck was setup complexity and module maturity, not AI capability. Claude built 4 modules, 12 tools, 15 articles, and all documentation in one session.</p>
+</div>
+
+<!-- SLIDE 8: FUTURE -->
+<div class="slide">
+  <p class="slide-num">08 — The Future</p>
+  <h2>Where This Goes Next</h2>
+  <p><span class="highlight">Claude is becoming a Cursor-like experience.</span> Imagine Claude rendering your Drupal site directly in its interface — edit an article in conversation, see the preview update, publish when satisfied.</p>
+  <div class="divider"></div>
+  <h3>This could be a contributed module ecosystem</h3>
+  <ul>
+    <li>Pre-configured MCP tools for common editorial workflows</li>
+    <li>A setup wizard that handles OAuth configuration</li>
+    <li>Role-based tool presets (Writer, Editor, Admin)</li>
+    <li>Visual preview integration</li>
+    <li>Multi-site management support</li>
+  </ul>
+  <p>The technology works today. The ecosystem needs to catch up.</p>
+</div>
+
+<!-- SLIDE 9: CONTRIBUTION -->
+<div class="slide">
+  <p class="slide-num">09 — Contribution Back to Drupal</p>
+  <h2>What We're Giving Back</h2>
+  <h3>Contrib patch: <code>hook_mcp_server_enabled_tools_alter()</code></h3>
+  <p>A standard Drupal alter hook that lets any module filter the MCP tools list at discovery time. Our implementation filters by user permissions — but the hook is generic. Any site can use it for role-based, scope-based, or context-based tool filtering.</p>
+  <h3>Also in the patch</h3>
+  <ul>
+    <li>Server <code>instructions</code> from config — auto-orients agents on connection</li>
+    <li>Fix for empty <code>properties</code> JSON serialization — broke Claude.ai's connector</li>
+    <li>DELETE method support — MCP spec compliance for session cleanup</li>
+  </ul>
+  <div class="divider"></div>
+  <p>
+    <span class="tag">patches/mcp_server--instructions-properties-delete-tools-alter.patch</span>
+  </p>
+</div>
+
+<!-- SUMMARY -->
+<div class="slide">
+  <p class="slide-num">Summary</p>
+  <h2>The Bottom Line</h2>
+  <p class="quote">The future of Drupal editorial is not "AI in the admin UI." It's "Drupal as the governed backend for AI agents that live wherever the editor works."</p>
+  <div class="divider"></div>
+  <p><strong>What we proved:</strong></p>
+  <ol>
+    <li>Desktop AI + Drupal MCP is a viable editorial workflow — working product, not theory</li>
+    <li>Drupal's existing permission system governs AI agents perfectly</li>
+    <li>Tool filtering at discovery time makes governance visible, not just enforced</li>
+    <li>The same infrastructure serves editors, developers, and sysadmins</li>
+    <li>One session, one AI, one developer — entire newspaper built and running</li>
+  </ol>
+  <div class="links" style="margin-top: 50px;">
+    <a href="https://thepromptpost.chadpeppers.dev">Live Site →</a>
+    <a href="https://github.com/chadmandoo/hackathon-drupalcon-chicago-2026">Source Code →</a>
+    <a href="#">Demo Video → [link TBD]</a>
+  </div>
+  <p style="margin-top: 40px; color: #666; font-size: 0.9em;">
+    Team: Chad Peppers (@chadmandoo) · Ryan Mott (@rmott-littler) · Monica McLaassen (@mclaassen)<br>
+    Built with Claude (Opus 4.6) via Claude Code + Claude.ai MCP
+  </p>
+</div>
+
+</body>
+</html>
