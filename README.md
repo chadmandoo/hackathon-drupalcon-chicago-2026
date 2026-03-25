@@ -9,7 +9,7 @@
 **Drupal Backend:** https://drupalcon2026.chadpeppers.dev
 **MCP Endpoint:** https://drupalcon2026.chadpeppers.dev/_mcp
 **Source:** https://github.com/chadmandoo/hackathon-drupalcon-chicago-2026
-**Demo Video:** [link TBD]
+**Demo Video:** https://www.youtube.com/watch?v=V0B0RgSnsW0
 **Presentation:** [View in browser](https://htmlpreview.github.io/?https://github.com/chadmandoo/hackathon-drupalcon-chicago-2026/blob/main/presentation.html) · [presentation.md](presentation.md) (markdown)
 
 ---
@@ -21,7 +21,7 @@ If you only have 5 minutes, here's the path:
 | Step | What | Link |
 |------|------|------|
 | 1 | **Read the presentation** (9 slides — the vision, tools, governance) | [View presentation](https://htmlpreview.github.io/?https://github.com/chadmandoo/hackathon-drupalcon-chicago-2026/blob/main/presentation.html) |
-| 2 | **Watch the demo video** (see everything in action) | [link TBD] |
+| 2 | **Watch the demo video** (see everything in action) | https://www.youtube.com/watch?v=V0B0RgSnsW0 |
 | 3 | **Browse the live site** (the newspaper Claude manages) | [thepromptpost.chadpeppers.dev](https://thepromptpost.chadpeppers.dev) |
 
 ### Submission checklist
@@ -160,7 +160,7 @@ The Editorial workflow (draft → review → published → archived) enforces re
 
 ### Live demo
 
-The fastest way to see this in action is the demo video: **[link TBD]**
+The fastest way to see this in action is the demo video: **https://www.youtube.com/watch?v=V0B0RgSnsW0**
 
 The live site is running at:
 - **Frontend:** https://thepromptpost.chadpeppers.dev
@@ -234,7 +234,7 @@ The MCP connection is all that's required. But the real power emerges when edito
 
 The idea: an editor's daily workspace is no longer the Drupal admin UI. It's a local folder with their research, notes, drafts, and brand guidelines. Claude has context from both the local files AND the Drupal site via MCP. The website is where content gets published; the local workspace is where content gets created.
 
-This is optional but recommended. A separate repo with the local workspace template is available at: **[link TBD]**
+This is optional but recommended. A separate repo with the local workspace template is available at: **https://www.youtube.com/watch?v=V0B0RgSnsW0**
 
 The MCP connection is the foundation. The local workspace is where it becomes transformative.
 
@@ -293,4 +293,4 @@ Honestly, not much. The AI (Claude Opus 4.6 via Claude Code) built the entire pr
 - Presentation: [presentation.md](presentation.md)
 - Contrib patch: [patches/mcp_server--instructions-properties-delete-tools-alter.patch](patches/mcp_server--instructions-properties-delete-tools-alter.patch)
 - Architecture docs: [docs/](docs/)
-- Demo video: [link TBD]
+- Demo video: https://www.youtube.com/watch?v=V0B0RgSnsW0

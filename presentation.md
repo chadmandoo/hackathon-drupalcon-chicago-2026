@@ -186,7 +186,7 @@ We connected Claude to a Drupal 11 site via MCP and let the AI manage a newspape
 
 ---
 
-*Demo video: [link TBD]*
+*Demo video: https://www.youtube.com/watch?v=V0B0RgSnsW0*
 *Live site: https://thepromptpost.chadpeppers.dev*
 *MCP endpoint: https://drupalcon2026.chadpeppers.dev/_mcp*
 *Source: https://github.com/chadmandoo/hackathon-drupalcon-chicago-2026*
